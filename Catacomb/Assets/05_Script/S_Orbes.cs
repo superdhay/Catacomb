@@ -33,7 +33,7 @@ public class S_Orbes : MonoBehaviour
         Instantiate(FX,this.transform.position,Quaternion.identity);
         GameManager.Orbes = GameManager.Orbes + QuantiteOrbe;
         ValeurOrbes.GetComponent<Text>().text = GameManager.Orbes.ToString();
-        Destroy(PrefabOrbe,0.1f);
+        Destroy(PrefabOrbe);
     }
 
 }
