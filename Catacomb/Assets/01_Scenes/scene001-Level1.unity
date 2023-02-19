@@ -6823,7 +6823,7 @@ Transform:
   - {fileID: 763405735}
   - {fileID: 1713059899}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1052032026
 GameObject:
@@ -8671,12 +8671,12 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 9ed62cd8cdf63914bba91dfeb4c73554,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -30.16
+      value: -9.5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9ed62cd8cdf63914bba91dfeb4c73554,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -96.89
+      value: -99.3
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 9ed62cd8cdf63914bba91dfeb4c73554,
         type: 3}
@@ -9815,75 +9815,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1478937482}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &1526776205
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: -8679921383154817045, guid: 506ae5c150c70434b95c16f8a11464e6,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 506ae5c150c70434b95c16f8a11464e6,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.06
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 506ae5c150c70434b95c16f8a11464e6,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 7.17
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 506ae5c150c70434b95c16f8a11464e6,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 12.768253
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 506ae5c150c70434b95c16f8a11464e6,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 506ae5c150c70434b95c16f8a11464e6,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 506ae5c150c70434b95c16f8a11464e6,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 506ae5c150c70434b95c16f8a11464e6,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 506ae5c150c70434b95c16f8a11464e6,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 506ae5c150c70434b95c16f8a11464e6,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 506ae5c150c70434b95c16f8a11464e6,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 919132149155446097, guid: 506ae5c150c70434b95c16f8a11464e6,
-        type: 3}
-      propertyPath: m_Name
-      value: SK_L.boy
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 506ae5c150c70434b95c16f8a11464e6, type: 3}
 --- !u!1001 &1527936430
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11833,7 +11764,7 @@ Transform:
   - {fileID: 90887845}
   - {fileID: 1374833167}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1928340252
 GameObject:
@@ -13511,7 +13442,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: -11.073, y: 293.42902, z: 225.579}
 --- !u!114 &2136832816
 MonoBehaviour:
