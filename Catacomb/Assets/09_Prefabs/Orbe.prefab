@@ -63,6 +63,7 @@ MonoBehaviour:
   QuantiteOrbe: 1
   PrefabOrbe: {fileID: 8552628697197083582}
   FX: {fileID: 6443819711570779741, guid: eb83919d1710f544c8bdc5cc74f81a28, type: 3}
+  ValeurOrbes: {fileID: 0}
 --- !u!1 &8552628697498247534
 GameObject:
   m_ObjectHideFlags: 0
