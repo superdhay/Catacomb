@@ -11,7 +11,6 @@ public class S_Orbes : MonoBehaviour
 
     public int QuantiteOrbe;
 
-    public GameObject PrefabOrbe;
     public GameObject FX;
     public GameObject ValeurOrbes;
 
@@ -22,18 +21,13 @@ public class S_Orbes : MonoBehaviour
     }
 
 
-    void Update()
-    {
-        
-    }
-
     private void OnTriggerEnter(Collider other)
     {
         Debug.Log("Orbe touchée");
         Instantiate(FX,this.transform.position,Quaternion.identity);
         GameManager.Orbes = GameManager.Orbes + QuantiteOrbe;
         ValeurOrbes.GetComponent<Text>().text = GameManager.Orbes.ToString();
-        Destroy(PrefabOrbe);
+        Destroy(gameObject);
     }
 
 }

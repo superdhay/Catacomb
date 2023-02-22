@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7015516032689517232}
   - component: {fileID: 5268844550455683373}
   m_Layer: 0
-  m_Name: Orbe
+  m_Name: Orbe_Jaune
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -60,8 +60,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d575ef7357bc08246a0d4846241944bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  QuantiteOrbe: 1
-  PrefabOrbe: {fileID: 8552628697197083582}
+  QuantiteOrbe: 5
   FX: {fileID: 6443819711570779741, guid: eb83919d1710f544c8bdc5cc74f81a28, type: 3}
   ValeurOrbes: {fileID: 0}
 --- !u!1 &8552628697498247534
