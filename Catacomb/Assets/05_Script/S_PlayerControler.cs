@@ -6,11 +6,11 @@ public class S_PlayerControler : MonoBehaviour
 {
 
     private CharacterController PlayerCTRL;
-    private Animator AnimationCTRL;
+    private Animator animationCTRL;
 
     public float PlayerSpeed, JumpSpeed;
     private float AxisH, AxisV, DeplacementY; 
-    public float Gravity;
+    private float Gravity = 9.8f;
 
     private Vector3 Deplacement;
 
@@ -21,7 +21,7 @@ public class S_PlayerControler : MonoBehaviour
     void Start()
     {
         PlayerCTRL = GetComponent<CharacterController>();
-        AnimationCTRL = GetComponent<Animator>();
+        animationCTRL = GetComponent<Animator>();
         Flag_Climb = false;
 
     }
@@ -30,26 +30,24 @@ public class S_PlayerControler : MonoBehaviour
     {
         AxisH = Input.GetAxis("Horizontal");
         AxisV = Input.GetAxis("Vertical");
-        AnimationCTRL.SetFloat("AxisH", AxisH);
-        AnimationCTRL.SetFloat("AxisV", AxisV);
+        animationCTRL.SetFloat("AxisH", AxisH);
+        animationCTRL.SetFloat("AxisV", AxisV);
 
-        AnimationCTRL.SetBool("isOnGround", isOnGround);
-        AnimationCTRL.SetBool("isClimbing", GameManager.isClimbing);
-        AnimationCTRL.SetBool("isRunning", isRunning);
+        animationCTRL.SetBool("isOnGround", isOnGround);
+        animationCTRL.SetBool("isClimbing", GameManager.isClimbing);
+        animationCTRL.SetBool("isRunning", isRunning);
 
 
         isOnGround = PlayerCTRL.isGrounded;
 
 
 
-        if (Input.GetAxis("Fire1") >= 0.9f)
+
+        if (Input.GetAxis("Jump") >= 0.1f)
         {
-            Flag_Climb = !Flag_Climb;
-            AnimationCTRL.SetTrigger("Climb");
+            animationCTRL.SetTrigger("Jump");
+            DeplacementY = JumpSpeed;
         }
-
-
-        if (Input.GetAxis("Jump") >= 0.1f) DeplacementY = JumpSpeed;
 
         //Action pour Déplacer le personnage sur l'axe X
         Deplacement = new Vector3(AxisH, 0, 0);
@@ -64,22 +62,30 @@ public class S_PlayerControler : MonoBehaviour
         Deplacement.y = DeplacementY;
 
 
-        if (Flag_Climb == true)
+        if (GameManager.isClimbing == true)
         {
-            GameManager.isClimbing = true;
-            Gravity = 0;
-            AnimationCTRL.applyRootMotion = false;
 
-            Deplacement = new Vector3(0, AxisV, 0);
-            Deplacement = transform.TransformDirection(Deplacement); //Calcul le Deplacement relatif au personnage et non pas au world
-            Deplacement = Deplacement * PlayerSpeed;
- 
-        }
-        else
-        {
-            GameManager.isClimbing = false;
-            Gravity = 9.8f;
-            AnimationCTRL.applyRootMotion = true;
+            if (Input.GetAxis("Fire1") >= 0.9f)
+            {
+                Flag_Climb = !Flag_Climb;
+                animationCTRL.SetTrigger("Climb");
+            }
+
+            if (Flag_Climb == true)
+            {
+                Gravity = 0f;
+                //animationCTRL.applyRootMotion = false;
+
+                Deplacement = new Vector3(0, AxisV, 0);
+                Deplacement = transform.TransformDirection(Deplacement); //Calcul le Deplacement relatif au personnage et non pas au world
+                Deplacement = Deplacement * PlayerSpeed;
+            }
+            else
+            {
+                Gravity = 9.8f;
+                animationCTRL.applyRootMotion = true;
+            }
+
         }
 
 
