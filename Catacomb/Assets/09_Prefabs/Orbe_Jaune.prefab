@@ -1,5 +1,38 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8248173134387324310
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5276942807144284723}
+  m_Layer: 0
+  m_Name: Visuel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5276942807144284723
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8248173134387324310}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 8552628699214960555}
+  - {fileID: 8552628698493610849}
+  m_Father: {fileID: 8552628697197083553}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8552628697197083582
 GameObject:
   m_ObjectHideFlags: 0
@@ -10,7 +43,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8552628697197083553}
   - component: {fileID: 7015516032689517232}
-  - component: {fileID: 5268844550455683373}
+  - component: {fileID: 3663757615956588327}
   m_Layer: 0
   m_Name: Orbe_Jaune
   m_TagString: Untagged
@@ -30,8 +63,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 8552628698493610849}
-  - {fileID: 8552628699214960555}
+  - {fileID: 5276942807144284723}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -48,7 +80,7 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.7
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &5268844550455683373
+--- !u!114 &3663757615956588327
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -57,12 +89,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 8552628697197083582}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d575ef7357bc08246a0d4846241944bf, type: 3}
+  m_Script: {fileID: 11500000, guid: 06888d5491138eb4ca9c6769e455c9e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  QuantiteOrbe: 5
   FX: {fileID: 6443819711570779741, guid: eb83919d1710f544c8bdc5cc74f81a28, type: 3}
   ValeurOrbes: {fileID: 0}
+  DureeDeRespawn: 5
 --- !u!1 &8552628697498247534
 GameObject:
   m_ObjectHideFlags: 0
@@ -4906,8 +4938,8 @@ Transform:
   m_LocalScale: {x: 0.2, y: 0.20000002, z: 0.19999999}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 8552628697197083553}
-  m_RootOrder: 0
+  m_Father: {fileID: 5276942807144284723}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 90}
 --- !u!33 &8552628698493610850
 MeshFilter:
@@ -4999,12 +5031,12 @@ Transform:
   m_GameObject: {fileID: 8552628699214960552}
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.009999999, y: 0.7, z: 0.6999999}
+  m_LocalScale: {x: 0.009999998, y: 0.7, z: 0.69999987}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8552628697498247505}
-  m_Father: {fileID: 8552628697197083553}
-  m_RootOrder: 1
+  m_Father: {fileID: 5276942807144284723}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!108 &8552628699214960557
 Light:

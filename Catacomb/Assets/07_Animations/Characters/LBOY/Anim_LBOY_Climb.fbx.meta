@@ -33,7 +33,7 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: L.Boy_Climb_Up
+      name: LBoy_Climb_Up
       takeName: Main
       internalID: -135952331956449747
       firstFrame: 1

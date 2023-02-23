@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class S_PlayerControler : MonoBehaviour
 {
@@ -16,6 +17,8 @@ public class S_PlayerControler : MonoBehaviour
 
     private bool isOnGround, isRunning;
     private bool Flag_Climb;
+    public bool Flag_DepenseStatue = false;
+    public bool Flag_DepenseBougie = false;
 
 
     void Start()
@@ -30,6 +33,8 @@ public class S_PlayerControler : MonoBehaviour
     {
         AxisH = Input.GetAxis("Horizontal");
         AxisV = Input.GetAxis("Vertical");
+
+        
         animationCTRL.SetFloat("AxisH", AxisH);
         animationCTRL.SetFloat("AxisV", AxisV);
 
@@ -41,13 +46,8 @@ public class S_PlayerControler : MonoBehaviour
         isOnGround = PlayerCTRL.isGrounded;
 
 
+        InputManager();
 
-
-        if (Input.GetAxis("Jump") >= 0.1f)
-        {
-            animationCTRL.SetTrigger("Jump");
-            DeplacementY = JumpSpeed;
-        }
 
         //Action pour Déplacer le personnage sur l'axe X
         Deplacement = new Vector3(AxisH, 0, 0);
@@ -60,6 +60,42 @@ public class S_PlayerControler : MonoBehaviour
         if (DeplacementY <= -1.0f) DeplacementY = -1.0f;
         Physics.SyncTransforms();
         Deplacement.y = DeplacementY;
+
+
+        if (Input.GetAxis("Jump") >= 0.1f)
+        {
+            animationCTRL.SetTrigger("Jump");
+            DeplacementY = JumpSpeed;
+        }
+
+
+        Climb();
+
+
+        PlayerCTRL.Move(Deplacement * Time.deltaTime); //Fait bouger le personnage selon les parametres de transform setup au dessus
+    }
+
+
+    public void InputManager()
+    {
+
+
+
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+
+            if (GameManager.Flag_Statue_On == true) Flag_DepenseStatue = true;
+            else Flag_DepenseStatue = false;
+
+            if (GameManager.Flag_Bougeoir_On == true) Flag_DepenseBougie = true;
+            else Flag_DepenseBougie = false;
+
+        }
+
+    }
+
+    public void Climb()
+    {
 
 
         if (GameManager.isClimbing == true)
@@ -88,7 +124,6 @@ public class S_PlayerControler : MonoBehaviour
 
         }
 
-
-        PlayerCTRL.Move(Deplacement * Time.deltaTime); //Fait bouger le personnage selon les parametres de transform setup au dessus
     }
+
 }
