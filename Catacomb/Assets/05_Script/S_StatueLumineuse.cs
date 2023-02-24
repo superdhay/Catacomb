@@ -1,19 +1,61 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class S_StatueLumineuse : MonoBehaviour
 {
-    public int CoutOrbes;
+    private int CoutOrbes = 5;
+
+    private GameObject Player;
+
+    public GameObject ValeurOrbes;
+
+    private void Start()
+    {
+
+        Player = GameObject.FindGameObjectWithTag("Player");
+
+        ValeurOrbes = GameObject.Find("QuantitéOrbes");
+        ValeurOrbes.GetComponent<Text>().text = GameManager.Orbes.ToString();
+
+    }
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "Player" && Input.GetAxis("Fire1") >= 0.9f && GameManager.Orbes >= CoutOrbes)
+        if(other.tag == "Player" )
         {
 
-            GameManager.Orbes = GameManager.Orbes - CoutOrbes;
-            gameObject.GetComponent<S_StatueLumineuse>().enabled = false;
+            Debug.Log("Interaction Statue");
 
+            if (GameManager.Orbes >= CoutOrbes)
+            {
+
+                GameManager.Flag_Statue_On = true;
+
+            }
+            else GameManager.Flag_Statue_On = false;
+
+        }
+
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.tag == "Player")
+        {
+            GameManager.Flag_Statue_On = false;
+        }
+    }
+
+    public void Update()
+    {
+        if (Player.GetComponent<S_PlayerControler>().Flag_DepenseStatue == true)
+        {
+            Debug.Log("Depense = true");
+            GameManager.Orbes = GameManager.Orbes - CoutOrbes;
+            ValeurOrbes.GetComponent<Text>().text = GameManager.Orbes.ToString();
+            gameObject.GetComponent<S_StatueLumineuse>().enabled = false;
         }
     }
 
