@@ -8,6 +8,7 @@ public class S_PlayerControler : MonoBehaviour
 
     private CharacterController PlayerCTRL;
     private Animator animationCTRL;
+    private GameObject Model;
 
     public float PlayerSpeed, JumpSpeed;
     private float AxisH, AxisV, DeplacementY; 
@@ -23,6 +24,8 @@ public class S_PlayerControler : MonoBehaviour
 
     void Start()
     {
+        Model = GameObject.Find("SK_LBOY");
+
         PlayerCTRL = GetComponent<CharacterController>();
         animationCTRL = GetComponent<Animator>();
         Flag_Climb = false;
@@ -51,8 +54,11 @@ public class S_PlayerControler : MonoBehaviour
 
         //Action pour Déplacer le personnage sur l'axe X
         Deplacement = new Vector3(AxisH, 0, 0);
-        Deplacement = this.transform.TransformDirection(Deplacement);
+        Deplacement = transform.TransformDirection(Deplacement);
         Deplacement = Deplacement * PlayerSpeed;
+
+        Vector3 relativePos = Model.transform.position - transform.position;
+        transform.rotation = Quaternion.LookRotation(Vector3.forward, Vector3.up);
 
 
         //Setup pour faire sauter le personnage
