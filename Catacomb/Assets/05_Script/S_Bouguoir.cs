@@ -8,6 +8,8 @@ using UnityEngine.UI;
  * Quand un bougeoire s'allume, les autres bougeoire s'éteignent. 
  * Quand le bougeoire s'allume, il créé un nouveau point de spawn pour le Player et sauvegarde la progression.
  * S'il est allumé, on ne peux pas re-depenser ses orbes.
+ * 
+ * Idee: Quand une bougeoir est allumé le script est désactivé, et il active le script des autres bougeoire.
  */
 
 public class S_Bouguoir : MonoBehaviour
@@ -15,22 +17,20 @@ public class S_Bouguoir : MonoBehaviour
     private int CoutOrbesBougies = 1;
 
     private GameObject Player;
-    //public GameObject Bougeoire;
+    public GameObject Flammes;
 
     public GameObject ValeurOrbes;
 
-    public bool Flag_On;
+    //public bool Flag_On;
 
     private void Start()
     {
 
         Player = GameObject.FindGameObjectWithTag("Player");
 
-
         ValeurOrbes = GameObject.Find("QuantitéOrbes");
         ValeurOrbes.GetComponent<Text>().text = GameManager.Orbes.ToString();
-
-        Flag_On = false;
+        Flammes.SetActive(false);
 
     }
 
@@ -68,17 +68,11 @@ public class S_Bouguoir : MonoBehaviour
             Debug.Log("Depense = true");
             GameManager.Orbes = GameManager.Orbes - CoutOrbesBougies;
             ValeurOrbes.GetComponent<Text>().text = GameManager.Orbes.ToString();
-            Flag_On = true;
+            gameObject.GetComponent<S_Bouguoir>().enabled = false;
+            Flammes.SetActive(true);
         }
-
-        if (Flag_On == true)
-        {
-            GameManager.Flag_Bougeoir_On = false;
-            Player.GetComponent<S_PlayerControler>().Flag_DepenseBougie = false;
-
-            Flag_On = false; // Si true, on ne peut plus dépenser d'orbes, même si on en a assez
-        }
-
     }
+
+
 
 }

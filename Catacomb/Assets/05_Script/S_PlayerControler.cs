@@ -92,6 +92,7 @@ public class S_PlayerControler : MonoBehaviour
 
         }
 
+
     }
 
     public void Climb()
