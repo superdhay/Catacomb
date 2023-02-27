@@ -105,7 +105,7 @@ public abstract class S_Enemy : MonoBehaviour
     public void EnemyVision()
     {
         RaycastHit hit;
-        if(Physics.Raycast(new Ray(transform.position, transform.right * 10), out hit, 10))
+        if (Physics.Raycast(new Ray(transform.position, transform.right * 10), out hit, 10))
         {
             if (hit.collider.tag == "Player")
             {

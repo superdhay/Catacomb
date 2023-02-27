@@ -24,13 +24,13 @@ public class S_BigSpider : S_Enemy
         if (base.canAttack)
         {
             base.canAttack = false;
-            GameObject projectile = Instantiate(objectToThrow, playerPosition, transform.rotation);
+            GameObject projectile = Instantiate(objectToThrow, transform.position, transform.rotation);
 
             Rigidbody projectileRB = projectile.GetComponent<Rigidbody>();
 
             projectileRB.AddForce(transform.right * 10, ForceMode.Impulse);
 
-            Invoke(nameof(ResetAttack), 2f);
+            Invoke(nameof(ResetAttack), .2f);
         }
     }
 }
