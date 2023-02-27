@@ -20,7 +20,7 @@ public abstract class S_Enemy : MonoBehaviour
     private bool isEndPatrol = false;
 
     private bool playerDetected = false;
-
+    public bool canAttack = true;
 
 
 
@@ -87,7 +87,6 @@ public abstract class S_Enemy : MonoBehaviour
                     if (waypointIndex == 0)
                     {
                         isEndPatrol = false;
-                       
                     }    
                 }
                 else if (isEndPatrol == false)
@@ -96,7 +95,6 @@ public abstract class S_Enemy : MonoBehaviour
                     if (waypointIndex == waypoints.Length-1)
                     {
                         isEndPatrol = true;
-                        
                     } 
                 }
             }
@@ -114,13 +112,14 @@ public abstract class S_Enemy : MonoBehaviour
                 playerDetected = true;
                 AttackPlayer(hit.point);
             }
-            else
-            {
-                playerDetected = false;
-            }
         }
         
     }
 
     public abstract void AttackPlayer(Vector3 playerPosition);
+
+    public void ResetAttack()
+    {
+        canAttack = true;
+    }
 }
