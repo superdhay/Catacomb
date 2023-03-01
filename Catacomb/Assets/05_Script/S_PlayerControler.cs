@@ -57,9 +57,6 @@ public class S_PlayerControler : MonoBehaviour
         Deplacement = transform.TransformDirection(Deplacement);
         Deplacement = Deplacement * PlayerSpeed;
 
-        Vector3 relativePos = Model.transform.position - transform.position;
-        transform.rotation = Quaternion.LookRotation(Vector3.forward, Vector3.up);
-
 
         //Setup pour faire sauter le personnage
         DeplacementY = DeplacementY - Gravity * Time.deltaTime;
@@ -75,7 +72,7 @@ public class S_PlayerControler : MonoBehaviour
         }
 
 
-        Climb();
+
 
 
         PlayerCTRL.Move(Deplacement * Time.deltaTime); //Fait bouger le personnage selon les parametres de transform setup au dessus
@@ -95,6 +92,8 @@ public class S_PlayerControler : MonoBehaviour
 
             if (GameManager.Flag_Bougeoir_On == true) Flag_DepenseBougie = true;
             else Flag_DepenseBougie = false;
+
+            Climb();
 
         }
 
@@ -117,7 +116,7 @@ public class S_PlayerControler : MonoBehaviour
             if (Flag_Climb == true)
             {
                 Gravity = 0f;
-                //animationCTRL.applyRootMotion = false;
+                animationCTRL.applyRootMotion = false;
 
                 Deplacement = new Vector3(0, AxisV, 0);
                 Deplacement = transform.TransformDirection(Deplacement); //Calcul le Deplacement relatif au personnage et non pas au world

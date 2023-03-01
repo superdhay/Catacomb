@@ -12,6 +12,8 @@ public class S_StatueLumineuse : MonoBehaviour
 
     public GameObject ValeurOrbes;
 
+    public bool Flag_UseStatue;
+
     private void Start()
     {
 
@@ -33,10 +35,10 @@ public class S_StatueLumineuse : MonoBehaviour
             if (GameManager.Orbes >= CoutOrbes)
             {
 
-                GameManager.Flag_Statue_On = true;
+                Flag_UseStatue = true;
 
             }
-            else GameManager.Flag_Statue_On = false;
+            else Flag_UseStatue = false;
 
         }
 
@@ -46,13 +48,13 @@ public class S_StatueLumineuse : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            GameManager.Flag_Statue_On = false;
+            Flag_UseStatue = false;
         }
     }
 
     public void Update()
     {
-        if (Player.GetComponent<S_PlayerControler>().Flag_DepenseStatue == true)
+        if (GameManager.Flag_Statue_On && Flag_UseStatue)
         {
             Debug.Log("Depense = true");
             GameManager.Orbes = GameManager.Orbes - CoutOrbes;
