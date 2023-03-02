@@ -212,10 +212,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0dea7ee9c1b1d9945b574ce82ae8921b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Prefab: {fileID: 2764042881060319631}
+  Player: {fileID: 0}
   Flammes: {fileID: 1785557492173184428}
   ValeurOrbes: {fileID: 0}
-  Flag_On: 0
+  Bougie1: {fileID: 0}
+  Bougie2: {fileID: 0}
+  Flag_UseBougie: 0
 --- !u!1 &2999982821363803985
 GameObject:
   m_ObjectHideFlags: 0
@@ -680,7 +682,7 @@ Light:
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 2
-  m_Range: 3.0748603
+  m_Range: 5
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10

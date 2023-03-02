@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public static int PV = 5;
+    public static int PV = 3;
     public static int Orbes = 0;
 
     public static bool isClimbing = false;

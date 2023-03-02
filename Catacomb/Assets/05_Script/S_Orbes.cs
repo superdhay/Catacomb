@@ -23,7 +23,6 @@ public class S_Orbes : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Orbe touchée");
         Instantiate(FX,this.transform.position,Quaternion.identity);
         GameManager.Orbes = GameManager.Orbes + QuantiteOrbe;
         ValeurOrbes.GetComponent<Text>().text = GameManager.Orbes.ToString();

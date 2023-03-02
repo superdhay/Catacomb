@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class S_SceneManager : MonoBehaviour
 {
     public Button StartBoutton, QuitBoutton;
+    public int SceneID;
 
     void Start()
     {
@@ -17,8 +18,7 @@ public class S_SceneManager : MonoBehaviour
 
     void Play()
     {
-        Debug.Log("Scene chargée");
-        //SceneManager.LoadScene(1);
+        SceneManager.LoadScene(SceneID);
     }
 
     void ExitGame()

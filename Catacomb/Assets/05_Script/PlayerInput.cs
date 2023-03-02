@@ -62,6 +62,33 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Attack"",
+                    ""type"": ""Button"",
+                    ""id"": ""0883255b-3fff-44bf-8f07-e104744d761a"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Luminosity"",
+                    ""type"": ""Button"",
+                    ""id"": ""1d1477af-16a3-48bd-b39f-91ea7827ab0a"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Resume"",
+                    ""type"": ""Button"",
+                    ""id"": ""62ee43d6-bb63-49e4-bc2e-918a34bfc852"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -196,6 +223,72 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""action"": ""Jump"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ab30488e-da1c-470e-b647-294a0a623a1d"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Attack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ff931700-3800-4263-aae8-c73611bcbaf1"",
+                    ""path"": ""<Keyboard>/ctrl"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Attack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f7cb82e2-0aa9-4c93-8065-2feeda032064"",
+                    ""path"": ""<Gamepad>/buttonNorth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Luminosity"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""43efb9b7-0390-449e-a36b-520fd8980b9f"",
+                    ""path"": ""<Keyboard>/rightShift"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Luminosity"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""20288e50-b684-483c-bd1e-b53020d0a2ef"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Resume"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""132fbe95-fa46-4c96-a23d-a02458303a78"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Resume"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -208,6 +301,9 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         m_L_Boy_Run = m_L_Boy.FindAction("Run", throwIfNotFound: true);
         m_L_Boy_Jump = m_L_Boy.FindAction("Jump", throwIfNotFound: true);
         m_L_Boy_Interact = m_L_Boy.FindAction("Interact", throwIfNotFound: true);
+        m_L_Boy_Attack = m_L_Boy.FindAction("Attack", throwIfNotFound: true);
+        m_L_Boy_Luminosity = m_L_Boy.FindAction("Luminosity", throwIfNotFound: true);
+        m_L_Boy_Resume = m_L_Boy.FindAction("Resume", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -271,6 +367,9 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
     private readonly InputAction m_L_Boy_Run;
     private readonly InputAction m_L_Boy_Jump;
     private readonly InputAction m_L_Boy_Interact;
+    private readonly InputAction m_L_Boy_Attack;
+    private readonly InputAction m_L_Boy_Luminosity;
+    private readonly InputAction m_L_Boy_Resume;
     public struct L_BoyActions
     {
         private @PlayerInput m_Wrapper;
@@ -279,6 +378,9 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         public InputAction @Run => m_Wrapper.m_L_Boy_Run;
         public InputAction @Jump => m_Wrapper.m_L_Boy_Jump;
         public InputAction @Interact => m_Wrapper.m_L_Boy_Interact;
+        public InputAction @Attack => m_Wrapper.m_L_Boy_Attack;
+        public InputAction @Luminosity => m_Wrapper.m_L_Boy_Luminosity;
+        public InputAction @Resume => m_Wrapper.m_L_Boy_Resume;
         public InputActionMap Get() { return m_Wrapper.m_L_Boy; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -300,6 +402,15 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 @Interact.started -= m_Wrapper.m_L_BoyActionsCallbackInterface.OnInteract;
                 @Interact.performed -= m_Wrapper.m_L_BoyActionsCallbackInterface.OnInteract;
                 @Interact.canceled -= m_Wrapper.m_L_BoyActionsCallbackInterface.OnInteract;
+                @Attack.started -= m_Wrapper.m_L_BoyActionsCallbackInterface.OnAttack;
+                @Attack.performed -= m_Wrapper.m_L_BoyActionsCallbackInterface.OnAttack;
+                @Attack.canceled -= m_Wrapper.m_L_BoyActionsCallbackInterface.OnAttack;
+                @Luminosity.started -= m_Wrapper.m_L_BoyActionsCallbackInterface.OnLuminosity;
+                @Luminosity.performed -= m_Wrapper.m_L_BoyActionsCallbackInterface.OnLuminosity;
+                @Luminosity.canceled -= m_Wrapper.m_L_BoyActionsCallbackInterface.OnLuminosity;
+                @Resume.started -= m_Wrapper.m_L_BoyActionsCallbackInterface.OnResume;
+                @Resume.performed -= m_Wrapper.m_L_BoyActionsCallbackInterface.OnResume;
+                @Resume.canceled -= m_Wrapper.m_L_BoyActionsCallbackInterface.OnResume;
             }
             m_Wrapper.m_L_BoyActionsCallbackInterface = instance;
             if (instance != null)
@@ -316,6 +427,15 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 @Interact.started += instance.OnInteract;
                 @Interact.performed += instance.OnInteract;
                 @Interact.canceled += instance.OnInteract;
+                @Attack.started += instance.OnAttack;
+                @Attack.performed += instance.OnAttack;
+                @Attack.canceled += instance.OnAttack;
+                @Luminosity.started += instance.OnLuminosity;
+                @Luminosity.performed += instance.OnLuminosity;
+                @Luminosity.canceled += instance.OnLuminosity;
+                @Resume.started += instance.OnResume;
+                @Resume.performed += instance.OnResume;
+                @Resume.canceled += instance.OnResume;
             }
         }
     }
@@ -326,5 +446,8 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         void OnRun(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
+        void OnAttack(InputAction.CallbackContext context);
+        void OnLuminosity(InputAction.CallbackContext context);
+        void OnResume(InputAction.CallbackContext context);
     }
 }

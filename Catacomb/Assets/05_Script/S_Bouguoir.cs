@@ -16,12 +16,14 @@ public class S_Bouguoir : MonoBehaviour
 {
     private int CoutOrbesBougies = 1;
 
-    private GameObject Player;
+    public GameObject Player;
     public GameObject Flammes;
 
     public GameObject ValeurOrbes;
+    public GameObject Bougie1;
+    public GameObject Bougie2;
 
-    //public bool Flag_On;
+    public bool Flag_UseBougie;
 
     private void Start()
     {
@@ -31,6 +33,7 @@ public class S_Bouguoir : MonoBehaviour
         ValeurOrbes = GameObject.Find("QuantitéOrbes");
         ValeurOrbes.GetComponent<Text>().text = GameManager.Orbes.ToString();
         Flammes.SetActive(false);
+        
 
     }
 
@@ -39,15 +42,14 @@ public class S_Bouguoir : MonoBehaviour
         if (other.tag == "Player")
         {
 
-            Debug.Log("Interaction Bougeoire");
 
             if (GameManager.Orbes >= CoutOrbesBougies)
             {
 
-                GameManager.Flag_Bougeoir_On = true;
+                Flag_UseBougie = true;
 
             }
-            else GameManager.Flag_Bougeoir_On = false;
+            else Flag_UseBougie = false;
 
         }
 
@@ -57,19 +59,28 @@ public class S_Bouguoir : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            GameManager.Flag_Bougeoir_On = false;
+            Flag_UseBougie = false;
         }
     }
 
     public void Update()
     {
-        if (Player.GetComponent<S_PlayerControler>().Flag_DepenseBougie == true)
+        if (GameManager.Flag_Statue_On && Flag_UseBougie)
         {
-            Debug.Log("Depense = true");
+
+
+            Bougie1.GetComponent<S_Bouguoir>().enabled = true;
+            Bougie1.GetComponent<S_Bouguoir>().Flammes.SetActive(false);
+            Bougie2.GetComponent<S_Bouguoir>().enabled = true;
+            Bougie2.GetComponent<S_Bouguoir>().Flammes.SetActive(false);
+
+
             GameManager.Orbes = GameManager.Orbes - CoutOrbesBougies;
             ValeurOrbes.GetComponent<Text>().text = GameManager.Orbes.ToString();
             gameObject.GetComponent<S_Bouguoir>().enabled = false;
             Flammes.SetActive(true);
+
+
         }
     }
 

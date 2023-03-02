@@ -30,7 +30,6 @@ public class S_StatueLumineuse : MonoBehaviour
         if(other.tag == "Player" )
         {
 
-            Debug.Log("Interaction Statue");
 
             if (GameManager.Orbes >= CoutOrbes)
             {
@@ -56,7 +55,6 @@ public class S_StatueLumineuse : MonoBehaviour
     {
         if (GameManager.Flag_Statue_On && Flag_UseStatue)
         {
-            Debug.Log("Depense = true");
             GameManager.Orbes = GameManager.Orbes - CoutOrbes;
             ValeurOrbes.GetComponent<Text>().text = GameManager.Orbes.ToString();
             gameObject.GetComponent<S_StatueLumineuse>().enabled = false;

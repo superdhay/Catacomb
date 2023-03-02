@@ -31,7 +31,6 @@ public class S_OrbesPerma : MonoBehaviour
         if (Flag_Respawn == false)
         {
 
-            Debug.Log("Orbe touchée");
             Instantiate(FX, this.transform.position, Quaternion.identity);
             GameManager.Orbes = GameManager.Orbes + QuantiteOrbe;
             ValeurOrbes.GetComponent<Text>().text = GameManager.Orbes.ToString();
@@ -40,6 +39,22 @@ public class S_OrbesPerma : MonoBehaviour
             orbe.SetActive(false);
 
         }
+
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+            if (Flag_Respawn == false)
+            {
+
+                Instantiate(FX, this.transform.position, Quaternion.identity);
+                GameManager.Orbes = GameManager.Orbes + QuantiteOrbe;
+                ValeurOrbes.GetComponent<Text>().text = GameManager.Orbes.ToString();
+
+                Flag_Respawn = true;
+                orbe.SetActive(false);
+
+            }
 
     }
 
