@@ -3,7 +3,12 @@ guid: 75e131df9f9ea14448af76ce55b83465
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ExoCle_initialShadingGroup1
+    second: {fileID: 2100000, guid: b5eda311e2bfb014994017febe67b936, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
