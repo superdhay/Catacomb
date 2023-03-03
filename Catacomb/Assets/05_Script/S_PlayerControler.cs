@@ -26,7 +26,7 @@ public class S_PlayerControler : MonoBehaviour
     float rotationFactorPerFrame = 30.0f;
     public float gravity;
     public float maxJumpHeight = 2.0f;
-    public float maxJumpTime = 0.5f;
+    public float maxJumpTime = 0.7f;
     float initialJumpVelocity;
     public float PlayerSpeed, RunSpeed;
 
@@ -218,7 +218,7 @@ public class S_PlayerControler : MonoBehaviour
         }
         else
         {
-            gravity = -8;
+            gravity = -7;
             animationCTRL.applyRootMotion = true;
             animationCTRL.SetBool("isClimbing", false);
             animationCTRL.SetFloat("AxisV", 0);
@@ -311,7 +311,7 @@ public class S_PlayerControler : MonoBehaviour
             Cooldown = 0;
             GameManager.Orbes = GameManager.Orbes - 1;
             ValeurOrbes.GetComponent<Text>().text = GameManager.Orbes.ToString();
-            GameObject Projectile = Instantiate(Prefab_Attack, Spawner.transform.position, Quaternion.Euler(Spawner.transform.rotation.x, Spawner.transform.rotation.y, Spawner.transform.rotation.z));
+            GameObject Projectile = Instantiate(Prefab_Attack, Spawner.transform.position, Quaternion.Euler(Spawner.transform.localRotation.x, Spawner.transform.localRotation.y, Spawner.transform.localRotation.z));
             Projectile.GetComponent<Rigidbody>().AddForce(-Vector3.left * 2000);
             
 
