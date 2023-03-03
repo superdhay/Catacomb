@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: b95d09984dda90a418f798059313e5c3
+guid: 509042140cbd7db43aece8cf74d6c596
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
@@ -7,10 +7,10 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Mesh_Spider1_Outfit
+      name: Outfit1
     second: {fileID: 2100000, guid: b2dcc233e812b82489e27b4a30779efe, type: 2}
   materials:
-    materialImportMode: 1
+    materialImportMode: 2
     materialName: 0
     materialSearch: 1
     materialLocation: 1
