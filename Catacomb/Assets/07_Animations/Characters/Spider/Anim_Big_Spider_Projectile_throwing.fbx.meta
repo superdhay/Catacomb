@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 6fa1ae814fbcb074095fd4803354b9db
+guid: 9a29b93b3274f0a4e80253cfd71f4abb
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
@@ -33,11 +33,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Big_Spider_Walk
+      name: Big_Spider_Throwing_Projectile
       takeName: Take 001
       internalID: 1827226128182048838
       firstFrame: 0
-      lastFrame: 17
+      lastFrame: 40
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
