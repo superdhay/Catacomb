@@ -29,6 +29,7 @@ public class S_PlayerControler : MonoBehaviour
     public float maxJumpTime = 0.7f;
     float initialJumpVelocity;
     public float PlayerSpeed, RunSpeed;
+    float StaminaDuration = 5;
 
     float AxisH, AxisV;
     float timerLuminosity, Cooldown;
@@ -147,6 +148,8 @@ public class S_PlayerControler : MonoBehaviour
             GameManager.Flag_Statue_On = true;
             GameManager.Flag_Bougeoir_On = true;
 
+            GameManager.Flag_Use = true;
+
             Climb_Flag = true;
 
         }
@@ -166,7 +169,8 @@ public class S_PlayerControler : MonoBehaviour
             currentMovement.y = currentMovementInput.y * 2;
             currentMovement.z = 0;
             currentMovement.x = 0;
-            //transform.rotation = Quaternion.Euler(0, -180, 0);
+            currentMovementInput.x = 0;
+            transform.rotation = Quaternion.Euler(0, -180, 0);
 
             gravity = 0f;
 
@@ -183,6 +187,11 @@ public class S_PlayerControler : MonoBehaviour
             animationCTRL.SetBool("isClimbing", false);
             animationCTRL.SetFloat("AxisV", 0);
 
+        }
+
+        if(GameManager.Flag_Dig)
+        {
+        
         }
 
     }
@@ -251,6 +260,14 @@ public class S_PlayerControler : MonoBehaviour
 
     }
 
+    public void Fire()
+    {
+        GameObject Projectile = Instantiate(Prefab_Attack, Spawner.transform.position, Spawner.transform.localRotation);
+        Projectile.GetComponent<Rigidbody>().AddForce(Vector3.forward * 1000);
+
+        Projectile.transform.rotation = Quaternion.Euler(0, -90, 0);
+    }
+
 
     void Update()
     {
@@ -267,18 +284,15 @@ public class S_PlayerControler : MonoBehaviour
 
         if (isAttacking && GameManager.Orbes >= 1 && Cooldown >= 1)
         {
-
+            
             Cooldown = 0;
             GameManager.Orbes = GameManager.Orbes - 1;
             ValeurOrbes.GetComponent<Text>().text = GameManager.Orbes.ToString();
-            GameObject Projectile = Instantiate(Prefab_Attack, Spawner.transform.position, Quaternion.Euler(Spawner.transform.localRotation.x, Spawner.transform.localRotation.y, Spawner.transform.localRotation.z));
-            Projectile.GetComponent<Rigidbody>().AddForce(-Vector3.left * 2000);
-            
+           
 
+            animationCTRL.SetTrigger("Fire");
 
         }
-
-        if (playerInputs.L_Boy.Resume.triggered) isResuming = !isResuming;
 
 
 
@@ -290,7 +304,7 @@ public class S_PlayerControler : MonoBehaviour
 
         Interact();
 
-        cam.transform.position = new Vector3(7.44f, (transform.position.y + 0.72f), transform.position.z);
+        cam.transform.position = new Vector3(1f, (transform.position.y + 0.1f), transform.position.z);
         cam.transform.LookAt(transform.position);
 
         Jump();
@@ -303,6 +317,8 @@ public class S_PlayerControler : MonoBehaviour
 
     void Resume()
     {
+        if (playerInputs.L_Boy.Resume.triggered) isResuming = !isResuming;
+
         if (isResuming)
         {
             resume.SetActive(true);
