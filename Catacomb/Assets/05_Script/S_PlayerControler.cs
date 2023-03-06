@@ -14,7 +14,7 @@ public class S_PlayerControler : MonoBehaviour
     GameObject Shiny_Light;
     GameObject resume;
     public GameObject Prefab_Attack;
-    public GameObject ValeurOrbes;
+    GameObject ValeurOrbes;
     public GameObject Spawner;
 
 
@@ -25,18 +25,19 @@ public class S_PlayerControler : MonoBehaviour
 
     float rotationFactorPerFrame = 30.0f;
     public float gravity;
-    public float maxJumpHeight = 2.0f;
+    public float maxJumpHeight = 2.4f;
     public float maxJumpTime = 0.7f;
     float initialJumpVelocity;
     public float PlayerSpeed, RunSpeed;
+    float StaminaDuration = 5;
 
     float AxisH, AxisV;
-    public float timerLuminosity, Cooldown;
+    float timerLuminosity, Cooldown;
 
     //Flag
     bool isJumpPressed = false;
     bool isMoving, isRunning, isJumping, isInteracting, isAttacking, isAddLuminosity, isResuming;
-    public bool isOnGround, Climb_Flag, Flag_Luminosity;
+    bool isOnGround, Climb_Flag, Flag_Luminosity;
 
 
 
@@ -46,7 +47,7 @@ public class S_PlayerControler : MonoBehaviour
         playerInputs = new PlayerInput();
         characterCTRL = GetComponent<CharacterController>();
         animationCTRL = GetComponent<Animator>();
-        cam = GameObject.FindGameObjectWithTag("MainCamera");
+        cam = GameObject.Find("Main Camera");
         Shiny_Light = GameObject.Find("ShinyLight");
         Spawner = GameObject.Find("SpawnProjo");
         resume = GameObject.Find("Resume");
@@ -79,8 +80,7 @@ public class S_PlayerControler : MonoBehaviour
         playerInputs.L_Boy.Luminosity.started += onLuminosity;
         playerInputs.L_Boy.Luminosity.canceled += onLuminosity;
 
-        playerInputs.L_Boy.Resume.started += onResume;
-        playerInputs.L_Boy.Resume.canceled += onResume;
+
 
         setupJumpVariable();
     }
@@ -137,46 +137,6 @@ public class S_PlayerControler : MonoBehaviour
     }
 
 
-    void onJump(InputAction.CallbackContext context)
-    {
-        isJumpPressed = context.ReadValueAsButton();
-
-    }
-
-    void onRun(InputAction.CallbackContext context)
-    {
-        isRunning = context.ReadValueAsButton();
-    }
-
-    void onMouvementInput(InputAction.CallbackContext context)
-    {
-        currentMovementInput = context.ReadValue<Vector2>();
-        currentMovement.x = currentMovementInput.x * PlayerSpeed;
-        //currentMovement.z = currentMovementInput.y;
-        currentRunningMovement.x = currentMovementInput.x * RunSpeed;
-
-        isMoving = currentMovementInput.x != 0;
-    }
-
-    void onInteract(InputAction.CallbackContext context)
-    {
-        isInteracting = context.ReadValueAsButton();
-    }
-
-    void onAttack(InputAction.CallbackContext context)
-    {
-        isAttacking = context.ReadValueAsButton();
-    }
-
-    void onLuminosity(InputAction.CallbackContext context)
-    {
-        isAddLuminosity = context.ReadValueAsButton();
-    }
-
-    void onResume(InputAction.CallbackContext context)
-    {
-        isResuming = context.ReadValueAsButton();
-    }
 
 
     void Interact()
@@ -187,6 +147,8 @@ public class S_PlayerControler : MonoBehaviour
 
             GameManager.Flag_Statue_On = true;
             GameManager.Flag_Bougeoir_On = true;
+
+            GameManager.Flag_Use = true;
 
             Climb_Flag = true;
 
@@ -205,8 +167,10 @@ public class S_PlayerControler : MonoBehaviour
             animationCTRL.SetFloat("AxisV", AxisV);
 
             currentMovement.y = currentMovementInput.y * 2;
+            currentMovement.z = 0;
             currentMovement.x = 0;
-            transform.rotation = Quaternion.Euler(0, 90, 0);
+            currentMovementInput.x = 0;
+            transform.rotation = Quaternion.Euler(0, -180, 0);
 
             gravity = 0f;
 
@@ -218,11 +182,16 @@ public class S_PlayerControler : MonoBehaviour
         }
         else
         {
-            gravity = -7;
+            
             animationCTRL.applyRootMotion = true;
             animationCTRL.SetBool("isClimbing", false);
             animationCTRL.SetFloat("AxisV", 0);
 
+        }
+
+        if(GameManager.Flag_Dig)
+        {
+        
         }
 
     }
@@ -251,7 +220,7 @@ public class S_PlayerControler : MonoBehaviour
     void Gravity()
     {
         float groundedGravity = 0.05f;
-        float fallMultiplier = 10.0f;
+        //float fallMultiplier = 5.0f;
         isOnGround = characterCTRL.isGrounded;
         bool isFalling = currentMovement.y <= 0.0f;
 
@@ -263,8 +232,8 @@ public class S_PlayerControler : MonoBehaviour
         }
         else if (isFalling)
         {
-            currentMovement.y += gravity * fallMultiplier * Time.deltaTime;
-            currentRunningMovement.y += gravity * fallMultiplier * Time.deltaTime;
+            currentMovement.y += gravity /* * fallMultiplier*/ * Time.deltaTime;
+            currentRunningMovement.y += gravity /* * fallMultiplier*/ * Time.deltaTime;
         }
         else
         {
@@ -273,14 +242,13 @@ public class S_PlayerControler : MonoBehaviour
         }
 
         animationCTRL.SetBool("isOnGround", isOnGround);
-
     }
 
 
     void animationManager()
     {
 
-        AxisH = currentMovement.x;
+        AxisH = currentMovement.z;
         AxisV = currentMovement.y;
 
 
@@ -292,6 +260,14 @@ public class S_PlayerControler : MonoBehaviour
 
     }
 
+    public void Fire()
+    {
+        GameObject Projectile = Instantiate(Prefab_Attack, Spawner.transform.position, Spawner.transform.localRotation);
+        Projectile.GetComponent<Rigidbody>().AddForce(Vector3.forward * 1000);
+
+        Projectile.transform.rotation = Quaternion.Euler(0, -90, 0);
+    }
+
 
     void Update()
     {
@@ -299,39 +275,37 @@ public class S_PlayerControler : MonoBehaviour
         Cooldown = Cooldown + Time.deltaTime;
         timerLuminosity = timerLuminosity + Time.deltaTime;
 
+        setupJumpVariable();
 
         handleRotation();
         animationManager();
-        Interact();
         Luminosity();
+        Resume();
 
         if (isAttacking && GameManager.Orbes >= 1 && Cooldown >= 1)
         {
-
+            
             Cooldown = 0;
             GameManager.Orbes = GameManager.Orbes - 1;
             ValeurOrbes.GetComponent<Text>().text = GameManager.Orbes.ToString();
-            GameObject Projectile = Instantiate(Prefab_Attack, Spawner.transform.position, Quaternion.Euler(Spawner.transform.localRotation.x, Spawner.transform.localRotation.y, Spawner.transform.localRotation.z));
-            Projectile.GetComponent<Rigidbody>().AddForce(-Vector3.left * 2000);
-            
+           
 
+            animationCTRL.SetTrigger("Fire");
 
         }
 
-       
-        if (isResuming)
-        {
-            resume.SetActive(true);
-            Time.timeScale = 0;
-        }
-        else resume.SetActive(false);
+
 
 
         if (isRunning) characterCTRL.Move(currentRunningMovement * Time.deltaTime);
         else characterCTRL.Move(currentMovement * Time.deltaTime);
 
         Gravity();
-        cam.transform.position = new Vector3(transform.position.x, (transform.position.y + 0.72f), -7.44f);
+
+        Interact();
+
+        cam.transform.position = new Vector3(1f, (transform.position.y + 0.1f), transform.position.z);
+        cam.transform.LookAt(transform.position);
 
         Jump();
 
@@ -339,6 +313,63 @@ public class S_PlayerControler : MonoBehaviour
 
         Climb_Flag = GameManager.isClimbing;
     }
+
+
+    void Resume()
+    {
+        if (playerInputs.L_Boy.Resume.triggered) isResuming = !isResuming;
+
+        if (isResuming)
+        {
+            resume.SetActive(true);
+            Time.timeScale = 0;
+            animationCTRL.enabled = false;
+        }
+        else
+        {
+            resume.SetActive(false);
+            animationCTRL.enabled = true;
+        }
+    }
+
+
+    void onJump(InputAction.CallbackContext context)
+    {
+        isJumpPressed = context.ReadValueAsButton();
+
+    }
+
+    void onRun(InputAction.CallbackContext context)
+    {
+        isRunning = context.ReadValueAsButton();
+    }
+
+    void onMouvementInput(InputAction.CallbackContext context)
+    {
+        currentMovementInput = context.ReadValue<Vector2>();
+        currentMovement.z = currentMovementInput.x * PlayerSpeed;
+        //currentMovement.z = currentMovementInput.y;
+        currentRunningMovement.z = currentMovementInput.x * RunSpeed;
+
+        isMoving = currentMovementInput.x != 0;
+    }
+
+    void onInteract(InputAction.CallbackContext context)
+    {
+        isInteracting = context.ReadValueAsButton();
+    }
+
+    void onAttack(InputAction.CallbackContext context)
+    {
+        isAttacking = context.ReadValueAsButton();
+    }
+
+    void onLuminosity(InputAction.CallbackContext context)
+    {
+        isAddLuminosity = context.ReadValueAsButton();
+    }
+
+
 
     private void OnEnable()
     {

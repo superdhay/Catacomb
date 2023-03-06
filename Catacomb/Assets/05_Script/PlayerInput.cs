@@ -87,7 +87,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""id"": ""62ee43d6-bb63-49e4-bc2e-918a34bfc852"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": """",
+                    ""interactions"": ""Press"",
                     ""initialStateCheck"": true
                 }
             ],
@@ -194,7 +194,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""b4bf68de-9e15-4c91-871e-9f1bbefde9e7"",
-                    ""path"": ""<Keyboard>/c"",
+                    ""path"": ""<Keyboard>/rightShift"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -260,7 +260,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""43efb9b7-0390-449e-a36b-520fd8980b9f"",
-                    ""path"": ""<Keyboard>/rightShift"",
+                    ""path"": ""<Keyboard>/f"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
