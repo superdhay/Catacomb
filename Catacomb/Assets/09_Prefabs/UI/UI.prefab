@@ -316,7 +316,7 @@ GameObject:
   - component: {fileID: 826682410643875093}
   - component: {fileID: 826682410643875092}
   m_Layer: 5
-  m_Name: Valeur
+  m_Name: "Quantit\xE9Orbes"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

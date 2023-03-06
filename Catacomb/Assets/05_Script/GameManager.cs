@@ -12,5 +12,7 @@ public class GameManager : MonoBehaviour
 
     public static bool Flag_Statue_On;
     public static bool Flag_Bougeoir_On;
+    public static bool Flag_Key;
+    public static bool Flag_Cranck;
 
 }
