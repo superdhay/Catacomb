@@ -65,10 +65,29 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 895e68d71c1757a47947c5e956c11dc2,
         type: 3}
       propertyPath: m_Name
-      value: SM_Plateforme_V1_Medium
+      value: SM_Plateforme_V1_Medium Variant
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 895e68d71c1757a47947c5e956c11dc2, type: 3}
+--- !u!1 &8306632202890379016 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 895e68d71c1757a47947c5e956c11dc2,
+    type: 3}
+  m_PrefabInstance: {fileID: 9189168615987135065}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &5109697137900666327
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8306632202890379016}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.8641578, y: 0.8052696, z: 1.540693}
+  m_Center: {x: -0.029520608, y: 0.4026348, z: -1.1206865e-23}
 --- !u!4 &8650505961719047602 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 895e68d71c1757a47947c5e956c11dc2,
@@ -144,6 +163,25 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2538ed05d788b594c879f4154d9a23ce, type: 3}
+--- !u!1 &8306632202840485027 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 2538ed05d788b594c879f4154d9a23ce,
+    type: 3}
+  m_PrefabInstance: {fileID: 9189168616072647154}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &1389220892947029730
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8306632202840485027}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.8051166, y: 0.8052696, z: 1.540693}
+  m_Center: {x: -0.00000047683716, y: 0.4026348, z: 5.492093e-25}
 --- !u!1001 &9189168616662862910
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -213,6 +251,25 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2538ed05d788b594c879f4154d9a23ce, type: 3}
+--- !u!1 &8306632202491703663 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 2538ed05d788b594c879f4154d9a23ce,
+    type: 3}
+  m_PrefabInstance: {fileID: 9189168616662862910}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &4245473437485204256
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8306632202491703663}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.8051166, y: 0.8052696, z: 1.540693}
+  m_Center: {x: -0.00000023841858, y: 0.4026348, z: 5.492093e-25}
 --- !u!1001 &9189168617925728843
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -282,3 +339,35 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2538ed05d788b594c879f4154d9a23ce, type: 3}
+--- !u!1 &8306632201473910554 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 2538ed05d788b594c879f4154d9a23ce,
+    type: 3}
+  m_PrefabInstance: {fileID: 9189168617925728843}
+  m_PrefabAsset: {fileID: 0}
+--- !u!61 &6967561427683147368
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8306632201473910554}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 1.0657656e-23, y: 0.4026348}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.8051166, y: 0.8052696}
+  m_EdgeRadius: 0
