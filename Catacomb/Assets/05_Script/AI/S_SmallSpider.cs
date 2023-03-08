@@ -4,14 +4,15 @@ using UnityEngine;
 
 public class S_SmallSpider : S_Enemy
 {
+    
     // Start is called before the first frame update
-    void Start()
+    public void Start()
     {
         base.Start();
     }
 
     // Update is called once per frame
-    void Update()
+    public void Update()
     {
         base.Update();
     }
@@ -20,4 +21,5 @@ public class S_SmallSpider : S_Enemy
     {
         Debug.Log("Toucher");
     }
+    
 }

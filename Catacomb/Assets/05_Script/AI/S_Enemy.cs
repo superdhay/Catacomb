@@ -22,7 +22,7 @@ public abstract class S_Enemy : MonoBehaviour
     private bool playerDetected = false;
     public bool canAttack = true;
 
-
+    public Animator animator;
 
 
     // Start is called before the first frame update
@@ -30,7 +30,7 @@ public abstract class S_Enemy : MonoBehaviour
     {
         //Set the position of enemy as position to the first waypoint.
         transform.position = waypoints[waypointIndex].transform.position;
-
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -40,6 +40,7 @@ public abstract class S_Enemy : MonoBehaviour
         if (!playerDetected)
         {
             Move();
+            animator.SetBool("IsAttacking", false);
         }
         
 
@@ -54,23 +55,25 @@ public abstract class S_Enemy : MonoBehaviour
     //Method that actually make enemy walks.
     public void Move()
     {
+
         //If Enemy didn't reach last waypoint it can move.
         //If Enemy reached the last waypoint then it comes back.
         if (waypointIndex <= waypoints.Length - 1)
         {
             //Move Enemy from current waypoint to the next one using MoveTowards method.
-            transform.position = Vector2.MoveTowards(
+            transform.position = Vector3.MoveTowards(
                 transform.position,
                 waypoints[waypointIndex].transform.position,
                 moveSpeed * Time.deltaTime
             );
+            animator.SetBool("IsMoving", true);
 
             //Make enemy rotate when it arrives at each ends
-            if (transform.position.x == waypoints[waypoints.Length - 1].transform.position.x)
+            if (transform.position.z == waypoints[waypoints.Length - 1].transform.position.z)
             {
                 transform.rotation = Quaternion.Euler(new Vector3(0f, 180f, 0f));
             }
-            if (transform.position.x == waypoints[0].transform.position.x)
+            if (transform.position.z == waypoints[0].transform.position.z)
             {
                 transform.rotation = Quaternion.Euler(new Vector3(0f, 0f, 0f));
             }
@@ -78,16 +81,15 @@ public abstract class S_Enemy : MonoBehaviour
             //If Enemy reaches position of waypoint he walked towards
             //Then waypointIndex is increased by 1
             //And Enemy starts to walk to the next waypoint.
-            if (transform.position.x == waypoints[waypointIndex].transform.position.x)
+            if (transform.position.z == waypoints[waypointIndex].transform.position.z)
             {
-               
                 if (isEndPatrol == true)
                 {
                     waypointIndex--;
                     if (waypointIndex == 0)
                     {
                         isEndPatrol = false;
-                    }    
+                    }
                 }
                 else if (isEndPatrol == false)
                 {
@@ -104,12 +106,15 @@ public abstract class S_Enemy : MonoBehaviour
 
     public void EnemyVision()
     {
+        Debug.DrawRay(transform.position, transform.forward * 10);
+
         RaycastHit hit;
-        if (Physics.Raycast(new Ray(transform.position, transform.right * 10), out hit, 10))
+        if (Physics.Raycast(new Ray(transform.position, transform.forward * 10), out hit, 10))
         {
             if (hit.collider.tag == "Player")
             {
                 playerDetected = true;
+                animator.SetBool("IsMoving", false);
                 AttackPlayer(hit.point);
             }
         }
