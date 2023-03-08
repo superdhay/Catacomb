@@ -8,42 +8,42 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Material_1
-    second: {fileID: 2100000, guid: be2dd9fcb93e6e748a8631cc4c25d923, type: 2}
+    second: {fileID: 2100000, guid: d104bee9b1f6e3a4f8522821d7327cda, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Material_2
-    second: {fileID: 2100000, guid: b00efe824d69d8441adbec986ff33291, type: 2}
+    second: {fileID: 2100000, guid: 63ba40e63fb84cf4185f0e8ed3102331, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Material_3
-    second: {fileID: 2100000, guid: 8084e6fbc1cd9424e9b8572650d67aae, type: 2}
+    second: {fileID: 2100000, guid: 39c2ae99bd1c1344e9cde8e7a1c861a0, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Material_4
-    second: {fileID: 2100000, guid: 62306ad2318188e4c888de28163f861d, type: 2}
+    second: {fileID: 2100000, guid: 830be8df114cb234aa9a8b02e1087002, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Material_5
-    second: {fileID: 2100000, guid: b5eda311e2bfb014994017febe67b936, type: 2}
+    second: {fileID: 2100000, guid: 3cb8688eafe828644bcc3f2698dcd08b, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Outfit.001
-    second: {fileID: 2100000, guid: 8084e6fbc1cd9424e9b8572650d67aae, type: 2}
+    second: {fileID: 2100000, guid: d8d2ed3e497e0e444b7af995eb120667, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: default_material
-    second: {fileID: 2100000, guid: be2dd9fcb93e6e748a8631cc4c25d923, type: 2}
+    second: {fileID: 2100000, guid: 5b4f0c587d498404cab2b341a4b193d9, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: lambert3
-    second: {fileID: 2100000, guid: 62306ad2318188e4c888de28163f861d, type: 2}
+    second: {fileID: 2100000, guid: 473c68b4f27456d4f9698892719afb1b, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
