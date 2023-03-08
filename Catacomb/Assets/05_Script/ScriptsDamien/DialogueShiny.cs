@@ -16,7 +16,7 @@ public class DialogueShiny : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Canvas = GameObject.Find("Canvas");
+        Canvas = GameObject.Find("UI");
         Compteur = 1;
         
     }
@@ -30,15 +30,17 @@ public class DialogueShiny : MonoBehaviour
     {
         if (FlagOneShot == false)
         {
-            Canvas.GetComponent<DialogueManager>().LeTexte = LeMessage;
             Canvas.GetComponent<DialogueManager>().ActivationDialogue = true;
-        }   
+            Canvas.GetComponent<DialogueManager>().LeTexte = LeMessage;
+        }
+        
         if (FlagOneShot == true)
         {
             if(Compteur <= 1)
             {
-                Canvas.GetComponent<DialogueManager>().LeTexte = LeMessage;
                 Canvas.GetComponent<DialogueManager>().ActivationDialogue = true;
+                Canvas.GetComponent<DialogueManager>().LeTexte = LeMessage;
+                
             }
             if (Compteur > 1)
             {
