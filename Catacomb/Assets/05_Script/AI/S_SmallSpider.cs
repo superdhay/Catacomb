@@ -39,6 +39,9 @@ public class S_SmallSpider : S_Enemy
         {
             base.Animator.SetBool("IsMoving", false);
             base.Animator.SetBool("IsAttacking", true);
+
+            //Reset Attack after @AttackDelay seconds.
+            Invoke(nameof(ResetAttack), base.GetAttackDelay());
         }
     }
 
