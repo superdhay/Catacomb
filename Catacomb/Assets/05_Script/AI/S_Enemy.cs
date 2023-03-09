@@ -166,6 +166,7 @@ public abstract class S_Enemy : MonoBehaviour
         if(GetLifePoint() <= 0)
         {
             Animator.SetBool("IsDead", true);
+            Destroy(this, .5f);
         }
     }
 
