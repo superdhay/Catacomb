@@ -22,8 +22,16 @@ public class S_BigSpider : S_Enemy
         base.Update();
     }
 
+
+    /*
+     * Function that will manage enemy attack.
+     * Override function from S_Enemy.
+     * 
+     * @param playerPosition (Vector3) : the position of the player when he was hit by the detection ray.
+     */
     public override void AttackPlayer(Vector3 playerPosition)
     {
+        //Verify is the enmey can attack
         if (base.GetCanAttack())
         {
             //Play Anim

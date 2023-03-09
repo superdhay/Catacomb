@@ -13,10 +13,12 @@ public class S_Projectile : MonoBehaviour
         gameObject.SetActive(true);
     }
 
+
+    //Function that manage the collision of the projectile.
     private void OnTriggerEnter(Collider collision)
     {
-       // S_PlayerControler player = collision.gameObject.GetComponent<S_PlayerControler>();
 
+        //Verify if it is the player that is hit.
         if (collision.tag ==Player.tag)
         {
             Debug.Log("hit");
