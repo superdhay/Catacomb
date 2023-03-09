@@ -26,7 +26,8 @@ public class S_Projectile : MonoBehaviour
             gameObject.SetActive(false);
             Destroy(this, .1f);
         }
-        gameObject.SetActive(false);
-        Destroy(this, .1f);
+        
+        
+        
     }
 }

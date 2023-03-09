@@ -40,7 +40,7 @@ public class S_BigSpider : S_Enemy
             base.SetCanAttack(false);
 
             //Set Spawn position.
-            Vector3 spawnPosition = new Vector3(transform.position.x, transform.position.y, transform.position.z-.5f);
+            Vector3 spawnPosition = new Vector3(transform.position.x, transform.position.y, transform.position.z+2f);
             GameObject projectile = Instantiate(ObjectToThrow, spawnPosition, transform.rotation);
 
             //Apply force to throw projectile.
