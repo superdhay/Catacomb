@@ -5,11 +5,13 @@ using UnityEngine;
 public class S_BigSpider : S_Enemy
 {
     public GameObject objectToThrow;
-    
+    private S_Projectile projectile;
+
     // Start is called before the first frame update
     public void Start()
     {
         base.Start();
+        projectile = new S_Projectile();
     }
 
     // Update is called once per frame
@@ -27,8 +29,9 @@ public class S_BigSpider : S_Enemy
             base.animator.SetBool("IsAttacking", true);
 
             base.canAttack = false;
+
             GameObject projectile = Instantiate(objectToThrow, transform.position, transform.rotation);
-            projectile.SetActive(true);
+
 
             Rigidbody projectileRB = projectile.GetComponent<Rigidbody>();
 
@@ -39,5 +42,4 @@ public class S_BigSpider : S_Enemy
             
         }
     }
-    
 }

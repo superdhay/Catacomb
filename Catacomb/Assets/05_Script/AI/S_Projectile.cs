@@ -10,6 +10,7 @@ public class S_Projectile : MonoBehaviour
     void Start()
     {
         Player = GameObject.FindGameObjectWithTag("Player");
+        gameObject.SetActive(true);
     }
 
     private void OnTriggerEnter(Collider collision)
@@ -18,10 +19,12 @@ public class S_Projectile : MonoBehaviour
 
         if (collision.tag ==Player.tag)
         {
+            Debug.Log("hit");
             GameManager.PV--;
-            Destroy(this);
+            gameObject.SetActive(false);
+            Destroy(this, .1f);
         }
-
-        Destroy(this);
+        gameObject.SetActive(false);
+        Destroy(this, .1f);
     }
 }
