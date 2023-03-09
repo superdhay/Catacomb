@@ -5,8 +5,8 @@ using UnityEngine;
 public class S_Destroy : MonoBehaviour
 {
     public GameObject destroyedVersion;
-    // Start is called before the first frame update
-    void onMouseDown()
+   
+    void Start()
     {
         Instantiate(destroyedVersion, transform.position, transform.rotation);
         Destroy(gameObject);

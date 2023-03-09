@@ -16,5 +16,6 @@ public class GameManager : MonoBehaviour
     public static bool Flag_Use;
     public static bool Flag_Key;
     public static bool Flag_Cranck;
+    public static bool Flag_TrapDoor;
 
 }

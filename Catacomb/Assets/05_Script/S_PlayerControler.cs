@@ -39,7 +39,7 @@ public class S_PlayerControler : MonoBehaviour
     bool isMoving, isRunning, isJumping, isInteracting, isAttacking, isAddLuminosity, isResuming;
     bool isOnGround, Climb_Flag, Flag_Luminosity;
 
-
+    public bool Flag_Item_Key, Flag_Item_Cranck;
 
 
     public void Awake()
@@ -58,7 +58,8 @@ public class S_PlayerControler : MonoBehaviour
         timerLuminosity = 6;
         Cooldown = 0;
 
-
+        Flag_Item_Key = GameManager.Flag_Key;
+        Flag_Item_Cranck = GameManager.Flag_Cranck;
 
         //Setup entre l'input et son action
         playerInputs.L_Boy.Move.started += onMouvementInput;
@@ -144,11 +145,13 @@ public class S_PlayerControler : MonoBehaviour
 
         if (isInteracting == true)
         {
+            Debug.Log("L.Boy is interacting with something!");
 
             GameManager.Flag_Statue_On = true;
             GameManager.Flag_Bougeoir_On = true;
 
             GameManager.Flag_Use = true;
+            GameManager.Flag_Dig = true;
 
             Climb_Flag = true;
 
@@ -157,6 +160,10 @@ public class S_PlayerControler : MonoBehaviour
         {
             GameManager.Flag_Statue_On = false;
             GameManager.Flag_Bougeoir_On = false;
+
+            GameManager.Flag_Use = false;
+            GameManager.Flag_Dig = false;
+
             Climb_Flag = false;
         }
 
@@ -189,10 +196,7 @@ public class S_PlayerControler : MonoBehaviour
 
         }
 
-        if(GameManager.Flag_Dig)
-        {
-        
-        }
+
 
     }
 
@@ -271,6 +275,7 @@ public class S_PlayerControler : MonoBehaviour
 
     void Update()
     {
+
         Time.timeScale = 1;
         Cooldown = Cooldown + Time.deltaTime;
         timerLuminosity = timerLuminosity + Time.deltaTime;
@@ -304,8 +309,8 @@ public class S_PlayerControler : MonoBehaviour
 
         Interact();
 
-        cam.transform.position = new Vector3(1f, (transform.position.y + 0.1f), transform.position.z);
-        cam.transform.LookAt(transform.position);
+        cam.transform.position = new Vector3(1f, (transform.position.y + 1f), transform.position.z);
+        //cam.transform.LookAt();
 
         Jump();
 

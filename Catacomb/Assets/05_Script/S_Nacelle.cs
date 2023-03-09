@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class S_LoadScene : MonoBehaviour
+public class S_Nacelle : MonoBehaviour
 {
     public int SceneID;
     public float Timer;
@@ -21,11 +21,11 @@ public class S_LoadScene : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.tag == "Player" && GameManager.Flag_Key == true && GameManager.Flag_Use)
+        if (other.tag == "Player" && GameManager.Flag_Cranck == true && GameManager.Flag_Use)
         {
             Timer = 0;
         }
-        
+
     }
 
     private void Update()

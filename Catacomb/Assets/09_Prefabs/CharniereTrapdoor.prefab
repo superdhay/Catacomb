@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1604745647210233512}
   - component: {fileID: 1604745647210233519}
+  - component: {fileID: 5195695055321978974}
+  - component: {fileID: 7743878844774862246}
   m_Layer: 0
   m_Name: CharniereTrapdoor
   m_TagString: Untagged
@@ -53,6 +55,31 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+--- !u!65 &5195695055321978974
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1604745647210233518}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.5379009, y: 0.41773605, z: 1.5441622}
+  m_Center: {x: -0.0027726293, y: -0.29113197, z: 0.7545284}
+--- !u!114 &7743878844774862246
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1604745647210233518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb775b4cf292504408ede9578c345531, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1910751614075364892
 GameObject:
   m_ObjectHideFlags: 0
@@ -62,6 +89,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1283397064919039142}
+  - component: {fileID: 3344946715314632251}
   m_Layer: 0
   m_Name: SM_TrapdoorPlusLoquet
   m_TagString: Untagged
@@ -86,6 +114,19 @@ Transform:
   m_Father: {fileID: 1604745647210233512}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!65 &3344946715314632251
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1910751614075364892}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.5323558, y: 0.1071949, z: 1.535128}
+  m_Center: {x: -0.0027727485, y: -0.002772808, z: 0.004157871}
 --- !u!1 &7927184040109418862
 GameObject:
   m_ObjectHideFlags: 0
