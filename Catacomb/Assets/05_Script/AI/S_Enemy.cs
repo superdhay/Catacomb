@@ -159,13 +159,19 @@ public abstract class S_Enemy : MonoBehaviour
     }
 
 
-    //Function that manage the enemy
+    /*
+     * Function that manage the enemy
+     * 
+     * @param damage (int) : the amount of damage the enemy will receive.
+     */
     public void ReceiveDamage(int damage)
     {
         SetLifePoint(GetLifePoint() - damage);
         if(GetLifePoint() <= 0)
         {
+            SetIsDead(false);
             Animator.SetBool("IsDead", true);
+            SetCanAttack(false);
             Destroy(this, .5f);
         }
     }
