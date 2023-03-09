@@ -3,9 +3,14 @@ guid: 8939c390657f4de4184354eb9702928b
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambertOs
+    second: {fileID: 2100000, guid: 586627f6be968f243855dd053dd4608d, type: 2}
   materials:
-    materialImportMode: 0
+    materialImportMode: 1
     materialName: 0
     materialSearch: 1
     materialLocation: 1

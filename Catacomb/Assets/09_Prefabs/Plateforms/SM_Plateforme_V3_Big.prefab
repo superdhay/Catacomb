@@ -65,10 +65,10 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: d18afca39aeb83846b2b8fb09b17e77e, type: 2}
+  - {fileID: 2100000, guid: d18afca39aeb83846b2b8fb09b17e77e, type: 2}
+  - {fileID: 2100000, guid: d18afca39aeb83846b2b8fb09b17e77e, type: 2}
+  - {fileID: 2100000, guid: d18afca39aeb83846b2b8fb09b17e77e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -298,7 +298,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.8001329, y: 0.8004015, z: 2.2625911}
   m_Center: {x: 0, y: 0.40020075, z: 1.20041006e-32}
---- !u!65 &7837257010536063577
+--- !u!65 &7654561095813108907
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -311,7 +311,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.8001329, y: 0.8004015, z: 2.2625911}
   m_Center: {x: 0, y: 0.40020075, z: 1.20041006e-32}
---- !u!65 &7654561095813108907
+--- !u!65 &7837257010536063577
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

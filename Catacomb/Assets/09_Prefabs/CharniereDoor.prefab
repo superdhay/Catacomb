@@ -81,6 +81,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SceneID: 0
+  Timer: 0
+  Transition: {fileID: 0}
 --- !u!1 &3470574920938075107
 GameObject:
   m_ObjectHideFlags: 0
