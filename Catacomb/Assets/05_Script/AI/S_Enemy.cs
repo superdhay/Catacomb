@@ -42,7 +42,7 @@ public abstract class S_Enemy : MonoBehaviour
     public void Start()
     {
         //Set the position of enemy as position to the first waypoint.
-        transform.position = Waypoints[WaypointIndex].transform.position;
+        transform.position = Waypoints[0].transform.position;
         Animator = GetComponent<Animator>();
     }
 
@@ -121,12 +121,13 @@ public abstract class S_Enemy : MonoBehaviour
     //Function that cast a ray to detect the player.
     public void EnemyVision()
     {
+        Vector3 rayStartPosition = new Vector3(transform.position.x, transform.position.y + .5f, transform.position.z+.5f);
         //Debug cast.
-        Debug.DrawRay(transform.position, transform.forward * 10);
+        Debug.DrawRay(rayStartPosition, transform.forward * 10);
 
         //Cast ray
         RaycastHit hit;
-        if (Physics.Raycast(new Ray(transform.position, transform.forward * 10), out hit, 10))
+        if (Physics.Raycast(new Ray(rayStartPosition, transform.forward * 10), out hit, 10))
         {
             //Verify if the player is touch.
             if (hit.collider.tag == "Player")
@@ -138,7 +139,7 @@ public abstract class S_Enemy : MonoBehaviour
                 Animator.SetBool("IsMoving", false);
 
                 //Enemy attacks.
-                AttackPlayer(hit.point);
+                AttackPlayer(hit.transform.position);
             }
         }
         

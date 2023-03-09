@@ -17,6 +17,7 @@ public class S_SmallSpider : S_Enemy
         base.Update();
     }
 
+
     /*
      * Function that will manage enemy attack.
      * Override function from S_Enemy.
@@ -25,28 +26,32 @@ public class S_SmallSpider : S_Enemy
      */
     public override void AttackPlayer(Vector3 playerPosition)
     {
-        Debug.Log("Toucher");
-
         //Move Enemy from current waypoint to the next one using MoveTowards method.
         transform.position = Vector3.MoveTowards(
             transform.position,
             playerPosition,
-            (base.GetMoveSpeed() + 1f) * Time.deltaTime
+            (base.GetMoveSpeed()+2f) * Time.deltaTime
         );
+
         base.Animator.SetBool("IsMoving", true);
 
-        if (transform.position.z == playerPosition.z)
+        float dist = Vector3.Distance(playerPosition, transform.position);
+        if (dist <= 1f)
         {
             base.Animator.SetBool("IsMoving", false);
-            base.Animator.SetBool("IsAttacking", true);
-
-            //Reset Attack after @AttackDelay seconds.
-            Invoke(nameof(ResetAttack), base.GetAttackDelay());
+            base.Animator.SetBool("IsAttacking", true); 
         }
+
+        //Reset Attack after @AttackDelay seconds.
+        Invoke(nameof(ResetAttack), base.GetAttackDelay());
     }
 
-    //Function that manage the collision.
-    private void OnTriggerEnter(Collider collision)
+    /*
+     * Function that manage the collision.
+     * 
+     * @param collision (Collider) : the collision box.
+     */
+    public void OnTriggerEnter(Collider collision)
     {
         //Verify if it is the player that is hit.
         if (collision.tag == "Player")

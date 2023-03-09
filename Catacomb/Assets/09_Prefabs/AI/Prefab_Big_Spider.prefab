@@ -871,9 +871,7 @@ MonoBehaviour:
   LifePoint: 2
   MoveSpeed: 2
   AttackDelay: 1.5
-  Waypoints:
-  - {fileID: 0}
-  - {fileID: 0}
+  Waypoints: []
   Animator: {fileID: 2685337335132979040}
   DestroyDelay: 4
   ObjectToThrow: {fileID: 4918415015750424109, guid: d06b489536760ee408ea861c4bb3d846,
