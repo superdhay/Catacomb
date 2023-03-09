@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/01_Scenes/Scene_TitleScreen.unity
     guid: 611e4f22f4aef3c4f9c1549f64fcd998
   - enabled: 1
-    path: Assets/01_Scenes/scene001-Level1 1.unity
+    path: Assets/01_Scenes/scene001-Level1_1.unity
     guid: 4988719eb66f44e4494fc1e0d52e03b9
   - enabled: 1
     path: Assets/01_Scenes/scene001-Level-Door.unity
