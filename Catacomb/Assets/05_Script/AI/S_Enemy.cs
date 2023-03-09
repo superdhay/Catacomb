@@ -34,8 +34,11 @@ public abstract class S_Enemy : MonoBehaviour
 
     public Animator Animator;
 
+    [SerializeField]
+    public GameObject Orbes;
 
-//////////////////////////////////////////////////////////////////////////////////
+
+    //////////////////////////////////////////////////////////////////////////////////
 
 
     // Start is called before the first frame update
@@ -61,7 +64,7 @@ public abstract class S_Enemy : MonoBehaviour
             //Cast a ray for player detection.
             EnemyVision();
         }
-        
+
     }
 
 
@@ -109,10 +112,10 @@ public abstract class S_Enemy : MonoBehaviour
                 else if (isEndPatrol == false)
                 {
                     WaypointIndex++;
-                    if (WaypointIndex == Waypoints.Length-1)
+                    if (WaypointIndex == Waypoints.Length - 1)
                     {
                         isEndPatrol = true;
-                    } 
+                    }
                 }
             }
         }
@@ -121,7 +124,7 @@ public abstract class S_Enemy : MonoBehaviour
     //Function that cast a ray to detect the player.
     public void EnemyVision()
     {
-        Vector3 rayStartPosition = new Vector3(transform.position.x, transform.position.y + .5f, transform.position.z+.5f);
+        Vector3 rayStartPosition = new Vector3(transform.position.x, transform.position.y + .5f, transform.position.z + .5f);
         //Debug cast.
         Debug.DrawRay(rayStartPosition, transform.forward * 10);
 
@@ -142,7 +145,7 @@ public abstract class S_Enemy : MonoBehaviour
                 AttackPlayer(hit.transform.position);
             }
         }
-        
+
     }
 
     /*
@@ -168,13 +171,25 @@ public abstract class S_Enemy : MonoBehaviour
     public void ReceiveDamage(int damage)
     {
         SetLifePoint(GetLifePoint() - damage);
-        if(GetLifePoint() <= 0)
+        if (GetLifePoint() <= 0)
         {
+            //Play death anim.
             SetIsDead(false);
             Animator.SetBool("IsDead", true);
             SetCanAttack(false);
+
+            //Drop orbes when the enemy dies.
+            OrbesDrop();
+
             Destroy(this, 1.5f);
+
         }
+    }
+
+    //Spawn orbes when the enemy faints.
+    public void OrbesDrop()
+    {
+        Instantiate(Orbes, transform.position, Quaternion.identity);
     }
 
 
