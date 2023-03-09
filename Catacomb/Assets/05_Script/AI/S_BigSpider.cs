@@ -4,14 +4,16 @@ using UnityEngine;
 
 public class S_BigSpider : S_Enemy
 {
-    public GameObject objectToThrow;
-    private S_Projectile projectile;
+    [SerializeField]
+    private float DestroyDelay = 4f;
+    [SerializeField]
+    private GameObject ObjectToThrow;
+
 
     // Start is called before the first frame update
     public void Start()
     {
         base.Start();
-        projectile = new S_Projectile();
     }
 
     // Update is called once per frame
@@ -22,23 +24,26 @@ public class S_BigSpider : S_Enemy
 
     public override void AttackPlayer(Vector3 playerPosition)
     {
-        
-        if (base.canAttack)
+        if (base.GetCanAttack())
         {
             //Play Anim
-            base.animator.SetBool("IsAttacking", true);
+            base.Animator.SetBool("IsAttacking", true);
 
-            base.canAttack = false;
+            base.SetCanAttack(false);
 
-            GameObject projectile = Instantiate(objectToThrow, transform.position, transform.rotation);
+            //Set Spawn position.
+            Vector3 spawnPosition = new Vector3(transform.position.x, transform.position.y, transform.position.z-.5f);
+            GameObject projectile = Instantiate(ObjectToThrow, spawnPosition, transform.rotation);
 
-
+            //Apply force to throw projectile.
             Rigidbody projectileRB = projectile.GetComponent<Rigidbody>();
-
             projectileRB.AddForce(transform.forward * 10, ForceMode.Impulse);
-            Destroy(projectile, 4f);
 
-            Invoke(nameof(ResetAttack), 1f);
+            //Destroy projectile after @DestroyDelay seconds.
+            Destroy(projectile, DestroyDelay);
+
+            //Reset Attack after @AttackDelay seconds.
+            Invoke(nameof(ResetAttack), base.GetAttackDelay());
             
         }
     }
