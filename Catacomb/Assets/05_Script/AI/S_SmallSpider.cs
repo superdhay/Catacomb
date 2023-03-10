@@ -60,4 +60,9 @@ public class S_SmallSpider : S_Enemy
             GameManager.PV--;
         }
     }
+
+    public void OnTriggerExit(Collider collision)
+    {
+        base.Animator.SetBool("IsAttacking", true);
+    }
 }
