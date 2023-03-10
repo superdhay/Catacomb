@@ -16,6 +16,8 @@ public class S_PlayerControler : MonoBehaviour
     public GameObject Prefab_Attack;
     GameObject ValeurOrbes;
     public GameObject Spawner;
+    public GameObject Magic;
+    public GameObject Magic2;
 
 
     // Variables pour les mouvements: déplacements, physique et sauts
@@ -268,6 +270,7 @@ public class S_PlayerControler : MonoBehaviour
     {
         GameObject Projectile = Instantiate(Prefab_Attack, Spawner.transform.position, Spawner.transform.localRotation);
         Projectile.GetComponent<Rigidbody>().AddForce(Vector3.forward * 1000);
+        
 
         Projectile.transform.rotation = Quaternion.Euler(0, -90, 0);
     }
@@ -293,8 +296,9 @@ public class S_PlayerControler : MonoBehaviour
             Cooldown = 0;
             GameManager.Orbes = GameManager.Orbes - 1;
             ValeurOrbes.GetComponent<Text>().text = GameManager.Orbes.ToString();
-           
 
+            Magic.GetComponent<Animator>().SetTrigger("Fire");
+            Magic2.GetComponent<Animator>().SetTrigger("Fire");
             animationCTRL.SetTrigger("Fire");
 
         }

@@ -6,8 +6,7 @@ public class S_Void : MonoBehaviour
 {
     public GameObject LBoy;
     public GameObject Respawn;
-    public GameObject FadeIn;
-    public GameObject FadeOut;
+    public GameObject Fade;
 
     public float Timer;
 
@@ -20,12 +19,10 @@ public class S_Void : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Timer >= 0.1f && Timer <=3) FadeIn.SetActive(true);
+        
 
-        if (Timer >= 3 && Timer <= 5)
+        if (Timer >= 1 && Timer <= 5)
         {
-            FadeOut.SetActive(true);
-            FadeIn.SetActive(false);
             Debug.Log("LBoy is dead by void");
             LBoy.transform.position = Respawn.transform.position;
             GameManager.PV = GameManager.PV - 1;
@@ -33,12 +30,16 @@ public class S_Void : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        Fade.SetActive(true);
+        Fade.GetComponent<Animator>().SetTrigger("Play");
+    }
+
     private void OnTriggerStay(Collider other)
     {
         if (other.tag == "Player")
         {
-            FadeIn.SetActive(false);
-            FadeOut.SetActive(false);
             Timer = Timer + Time.deltaTime;
         }
     }
