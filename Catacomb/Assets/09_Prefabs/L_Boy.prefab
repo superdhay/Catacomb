@@ -2355,6 +2355,7 @@ MonoBehaviour:
   Spawner: {fileID: 0}
   Magic: {fileID: 8643955946422469617}
   Magic2: {fileID: 8354829692188832952}
+  ModLBoy: {fileID: 0}
   gravity: -10
   maxJumpHeight: 2.5
   maxJumpTime: 0.5
@@ -3637,7 +3638,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3150586285490491137}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.94699955, z: -0.69599915}
+  m_LocalPosition: {x: 0, y: 1.265, z: 0.771}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
