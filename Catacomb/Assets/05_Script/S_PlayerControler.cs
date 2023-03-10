@@ -19,6 +19,8 @@ public class S_PlayerControler : MonoBehaviour
     public GameObject Magic;
     public GameObject Magic2;
 
+    public GameObject CamRight, CamLeft;
+
 
     // Variables pour les mouvements: déplacements, physique et sauts
     Vector2 currentMovementInput;
@@ -40,6 +42,7 @@ public class S_PlayerControler : MonoBehaviour
     bool isJumpPressed = false;
     bool isMoving, isRunning, isJumping, isInteracting, isAttacking, isAddLuminosity, isResuming;
     bool isOnGround, Climb_Flag, Flag_Luminosity;
+    public bool isRight;
 
     public bool Flag_Item_Key, Flag_Item_Cranck;
 
@@ -53,6 +56,9 @@ public class S_PlayerControler : MonoBehaviour
         Shiny_Light = GameObject.Find("ShinyLight");
         Spawner = GameObject.Find("SpawnProjo");
         resume = GameObject.Find("Resume");
+
+        //CamLeft = GameObject.Find("MainCameraLeft");
+        //CamRight = GameObject.Find("MainCameraRight");
 
         ValeurOrbes = GameObject.Find("QuantitéOrbes");
         ValeurOrbes.GetComponent<Text>().text = GameManager.Orbes.ToString();
@@ -86,6 +92,22 @@ public class S_PlayerControler : MonoBehaviour
 
 
         setupJumpVariable();
+    }
+
+    private void Start()
+    {
+        if (transform.rotation.y == 0)
+        {
+            isRight = true;
+            CamRight.SetActive(true);
+            CamLeft.SetActive(false);
+        }
+        else
+        {
+            isRight = false;
+            CamRight.SetActive(false);
+            CamLeft.SetActive(true);
+        }
     }
 
 
@@ -127,7 +149,7 @@ public class S_PlayerControler : MonoBehaviour
         {
             isJumping = true;
             animationCTRL.SetBool("isJumping", true);
-            Physics.SyncTransforms();
+            //Physics.SyncTransforms();
             currentMovement.y = initialJumpVelocity;
             currentRunningMovement.y = initialJumpVelocity;
         }
@@ -179,7 +201,7 @@ public class S_PlayerControler : MonoBehaviour
             currentMovement.z = 0;
             currentMovement.x = 0;
             currentMovementInput.x = 0;
-            transform.rotation = Quaternion.Euler(0, -180, 0);
+            //transform.rotation = Quaternion.Euler(0, -180, 0);
 
             gravity = 0f;
 
@@ -268,12 +290,14 @@ public class S_PlayerControler : MonoBehaviour
 
     public void Fire()
     {
-        GameObject Projectile = Instantiate(Prefab_Attack, Spawner.transform.position, Spawner.transform.localRotation);
-        Projectile.GetComponent<Rigidbody>().AddForce(Vector3.forward * 1000);
+        //GameObject Projectile = Instantiate(Prefab_Attack, Spawner.transform.position, Spawner.transform.localRotation);
+        GameObject Projectile = Instantiate(Prefab_Attack, Spawner.transform.position, Quaternion.Euler(-90,0,0) );
+        Projectile.GetComponent<Rigidbody>().AddForce(Spawner.transform.forward * 1000);
         
-
-        Projectile.transform.rotation = Quaternion.Euler(0, -90, 0);
+        if (isRight) Projectile.transform.rotation = Quaternion.Euler(0, 90, 0);
+        if (!isRight) Projectile.transform.rotation = Quaternion.Euler(0, -90, 0);
     }
+
 
 
     void Update()
@@ -282,6 +306,19 @@ public class S_PlayerControler : MonoBehaviour
         Time.timeScale = 1;
         Cooldown = Cooldown + Time.deltaTime;
         timerLuminosity = timerLuminosity + Time.deltaTime;
+
+        if (transform.rotation.y == 0)
+        {
+            isRight = true;
+            CamRight.SetActive(true);
+            CamLeft.SetActive(false);
+        }
+        else
+        {
+            isRight = false;
+            CamRight.SetActive(false);
+            CamLeft.SetActive(true);
+        }
 
         setupJumpVariable();
 
@@ -313,8 +350,10 @@ public class S_PlayerControler : MonoBehaviour
 
         Interact();
 
-        cam.transform.position = new Vector3(1f, (transform.position.y + 1f), transform.position.z);
-        //cam.transform.LookAt();
+        //cam.transform.position = new Vector3(1f, (transform.position.y + 1f), transform.position.z);
+        
+        
+        //cam.transform.LookAt(transform.position);
 
         Jump();
 
