@@ -2167,6 +2167,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 2844102713904093917, guid: 55b0ef122d4c7454eacc5585819666dd,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2979506350350050512, guid: 55b0ef122d4c7454eacc5585819666dd,
         type: 3}
       propertyPath: m_Layer
@@ -2177,15 +2182,85 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 3150586284901800056, guid: 55b0ef122d4c7454eacc5585819666dd,
+        type: 3}
+      propertyPath: m_ClearFlags
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3150586284901800056, guid: 55b0ef122d4c7454eacc5585819666dd,
+        type: 3}
+      propertyPath: m_BackGroundColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3150586284901800056, guid: 55b0ef122d4c7454eacc5585819666dd,
+        type: 3}
+      propertyPath: m_BackGroundColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3150586284901800056, guid: 55b0ef122d4c7454eacc5585819666dd,
+        type: 3}
+      propertyPath: m_BackGroundColor.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3150586284901800058, guid: 55b0ef122d4c7454eacc5585819666dd,
+        type: 3}
+      propertyPath: m_Name
+      value: Main Camera
+      objectReference: {fileID: 0}
     - target: {fileID: 3150586285032853497, guid: 55b0ef122d4c7454eacc5585819666dd,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.4
+      value: 11.2
       objectReference: {fileID: 0}
     - target: {fileID: 3150586285032853497, guid: 55b0ef122d4c7454eacc5585819666dd,
         type: 3}
       propertyPath: m_LocalPosition.z
       value: 19.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 3150586285032853503, guid: 55b0ef122d4c7454eacc5585819666dd,
+        type: 3}
+      propertyPath: ModLBoy
+      value: 
+      objectReference: {fileID: 1244613633}
+    - target: {fileID: 3150586286264688289, guid: 55b0ef122d4c7454eacc5585819666dd,
+        type: 3}
+      propertyPath: m_ClearFlags
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3150586286264688289, guid: 55b0ef122d4c7454eacc5585819666dd,
+        type: 3}
+      propertyPath: m_BackGroundColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3150586286264688289, guid: 55b0ef122d4c7454eacc5585819666dd,
+        type: 3}
+      propertyPath: m_BackGroundColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3150586286264688289, guid: 55b0ef122d4c7454eacc5585819666dd,
+        type: 3}
+      propertyPath: m_BackGroundColor.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3150586286376691432, guid: 55b0ef122d4c7454eacc5585819666dd,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3150586286376691439, guid: 55b0ef122d4c7454eacc5585819666dd,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3150586286376691439, guid: 55b0ef122d4c7454eacc5585819666dd,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3150586286376691439, guid: 55b0ef122d4c7454eacc5585819666dd,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3375192454723443964, guid: 55b0ef122d4c7454eacc5585819666dd,
         type: 3}
@@ -33449,6 +33524,12 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.3129399, y: 1.3133806, z: 3.7126894}
   m_Center: {x: 0.00000059604645, y: 0.65670556, z: -0.0000005364418}
+--- !u!1 &1244613633 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3150586286376691432, guid: 55b0ef122d4c7454eacc5585819666dd,
+    type: 3}
+  m_PrefabInstance: {fileID: 79497807}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1244816194
 GameObject:
   m_ObjectHideFlags: 0

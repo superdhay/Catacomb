@@ -13,13 +13,17 @@ public class S_PlayerControler : MonoBehaviour
     GameObject cam;
     GameObject Shiny_Light;
     GameObject resume;
+    GameObject StaminaBar, StaminaBarBase, FadeIn;
+
     public GameObject Prefab_Attack;
     GameObject ValeurOrbes;
     public GameObject Spawner;
     public GameObject Magic;
     public GameObject Magic2;
 
-    public GameObject CamRight, CamLeft;
+    public GameObject ModLBoy;
+
+    
 
 
     // Variables pour les mouvements: déplacements, physique et sauts
@@ -33,7 +37,7 @@ public class S_PlayerControler : MonoBehaviour
     public float maxJumpTime = 0.7f;
     float initialJumpVelocity;
     public float PlayerSpeed, RunSpeed;
-    public float MaxStamina, CurrentStamina;
+    public float MaxStamina, CurrentStamina, StaminaFill;
 
     float AxisH, AxisV;
     float timerLuminosity, Cooldown;
@@ -42,7 +46,7 @@ public class S_PlayerControler : MonoBehaviour
     bool isJumpPressed = false;
     bool isMoving, isRunning, isJumping, isInteracting, isAttacking, isAddLuminosity, isResuming;
     bool isOnGround, Climb_Flag, Flag_Luminosity;
-    public bool isRight;
+    public bool isRight, oldIsRight;
 
     public bool Flag_Item_Key, Flag_Item_Cranck;
 
@@ -56,6 +60,9 @@ public class S_PlayerControler : MonoBehaviour
         Shiny_Light = GameObject.Find("ShinyLight");
         Spawner = GameObject.Find("SpawnProjo");
         resume = GameObject.Find("Resume");
+        StaminaBar = GameObject.Find("StaminaQTE");
+        StaminaBarBase = GameObject.Find("Stamina");
+        FadeIn = GameObject.Find("FadeIn");
 
 
         ValeurOrbes = GameObject.Find("QuantitéOrbes");
@@ -94,18 +101,19 @@ public class S_PlayerControler : MonoBehaviour
 
     private void Start()
     {
-        if (transform.rotation.y == 0)
+        if (ModLBoy.transform.rotation.y == 0)
         {
             isRight = true;
-            CamRight.SetActive(true);
-            CamLeft.SetActive(false);
+
+
         }
         else
         {
             isRight = false;
-            CamRight.SetActive(false);
-            CamLeft.SetActive(true);
+
+
         }
+        oldIsRight = isRight;
 
         MaxStamina = 5;
         CurrentStamina = 5;
@@ -125,8 +133,23 @@ public class S_PlayerControler : MonoBehaviour
 
         if (isMoving)
         {
-            Quaternion targetRotation = Quaternion.LookRotation(positionToLookAt);
-            transform.rotation = Quaternion.Slerp(currentRotation, targetRotation, rotationFactorPerFrame * Time.deltaTime);
+            //Quaternion targetRotation = Quaternion.LookRotation(positionToLookAt);
+            //transform.rotation = Quaternion.Slerp(currentRotation, targetRotation, rotationFactorPerFrame * Time.deltaTime);
+
+            if (currentMovementInput.x >0)
+            {
+                ModLBoy.transform.rotation = Quaternion.Euler(ModLBoy.transform.rotation.x , 0, ModLBoy.transform.rotation.z);
+
+            }
+            else
+            {
+
+                ModLBoy.transform.rotation = Quaternion.Euler(ModLBoy.transform.rotation.x, 180, ModLBoy.transform.rotation.z);
+            }
+
+
+
+
         }
         
 
@@ -209,6 +232,7 @@ public class S_PlayerControler : MonoBehaviour
             animationCTRL.applyRootMotion = false;
             isMoving = false;
             isRunning = false;
+
 
 
         }
@@ -304,22 +328,24 @@ public class S_PlayerControler : MonoBehaviour
     void Update()
     {
 
+        if (ModLBoy.transform.rotation.y == 0)
+        {
+            isRight = true;
+            
+
+        }
+        else
+        {
+
+            isRight = false;
+           
+        }
+
         Time.timeScale = 1;
         Cooldown = Cooldown + Time.deltaTime;
         timerLuminosity = timerLuminosity + Time.deltaTime;
 
-        if (transform.rotation.y == 0)
-        {
-            isRight = true;
-            CamRight.SetActive(true);
-            CamLeft.SetActive(false);
-        }
-        else
-        {
-            isRight = false;
-            CamRight.SetActive(false);
-            CamLeft.SetActive(true);
-        }
+
 
         setupJumpVariable();
 
@@ -342,26 +368,22 @@ public class S_PlayerControler : MonoBehaviour
         }
 
 
+        StaminaFill = CurrentStamina / MaxStamina;
+        StaminaBar.GetComponent<Image>().fillAmount = StaminaFill;
+
+        if (isRunning) characterCTRL.Move(currentRunningMovement * Time.deltaTime);
+        else characterCTRL.Move(currentMovement * Time.deltaTime);
 
 
-        if (isRunning && CurrentStamina >= 0)
+        if (GameManager.PV <= 0)
         {
-            CurrentStamina = CurrentStamina - Time.deltaTime;
-            characterCTRL.Move(currentRunningMovement * Time.deltaTime);
+            animationCTRL.SetBool("isDead", true);
+            FadeIn.SetActive(true);
         }
-        else if(!isRunning && CurrentStamina <= MaxStamina)
-        {
-            characterCTRL.Move(currentMovement * Time.deltaTime);
-            CurrentStamina = CurrentStamina + Time.deltaTime;
-        }
-        else
-        {
-
-            characterCTRL.Move(currentMovement * Time.deltaTime);
-        }
+        else animationCTRL.SetBool("isDead", false);
 
 
-        
+        Stamina();
 
         Gravity();
 
@@ -369,7 +391,6 @@ public class S_PlayerControler : MonoBehaviour
 
         Jump();
 
-        if (GameManager.PV <= 0) animationCTRL.SetBool("isDying", true);
 
         Climb_Flag = GameManager.isClimbing;
     }
@@ -389,6 +410,29 @@ public class S_PlayerControler : MonoBehaviour
         {
             resume.SetActive(false);
             animationCTRL.enabled = true;
+        }
+    }
+
+    void Stamina()
+    {
+        if (isRunning && currentMovementInput.x != 0 && CurrentStamina >= 0)
+        {
+            StaminaBarBase.SetActive(true);
+            StaminaBar.SetActive(true);
+            CurrentStamina = CurrentStamina - Time.deltaTime;
+
+        }
+        else if (!isRunning && CurrentStamina <= MaxStamina)
+        {
+            StaminaBarBase.SetActive(true);
+            StaminaBar.SetActive(true);
+            CurrentStamina = CurrentStamina + Time.deltaTime;
+        }
+        else if (CurrentStamina >= 0 && CurrentStamina <= 4.9) StaminaBarBase.SetActive(true);
+        else
+        {
+            StaminaBarBase.SetActive(false);
+            StaminaBar.SetActive(false);
         }
     }
 
