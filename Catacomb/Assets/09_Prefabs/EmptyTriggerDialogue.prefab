@@ -44,8 +44,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 3, y: 3, z: 5.9697413}
-  m_Center: {x: -2.966627e-10, y: 0, z: -1.4848752}
+  m_Size: {x: 1, y: 3, z: 6}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &8965508805015043753
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -58,6 +58,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0109cbe2774c9304eafbb49be546c1ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PhraseShiny: {fileID: 0}
   FlagOneShot: 0
   LeMessage: You must find the key to open the door
   Compteur: 0
