@@ -13,6 +13,7 @@ public class DialogueManager : MonoBehaviour
     public bool FlagText;
 
     public GameObject PanelDeTexte;
+    public GameObject SourceAudio;
 
     // Start is called before the first frame update
     void Start()
@@ -22,6 +23,7 @@ public class DialogueManager : MonoBehaviour
         FlagText = false;
         PanelDeTexte.SetActive(false);
         ZoneDeTexte.text = "";
+        //SourceAudio.SetActive(false);
     }
 
     // Update is called once per frame
@@ -34,6 +36,7 @@ public class DialogueManager : MonoBehaviour
                 PanelDeTexte.SetActive(true); // Active le canvas de dialogue
                 StartCoroutine(AfficheTexte());
                 FlagText = true;
+                //SourceAudio.SetActive(true);
             }
         }
 
@@ -43,6 +46,7 @@ public class DialogueManager : MonoBehaviour
             FlagText = false;
             ZoneDeTexte.text = "";
             StopAllCoroutines();
+            //SourceAudio.SetActive(false);
         }
     }
     IEnumerator AfficheTexte()

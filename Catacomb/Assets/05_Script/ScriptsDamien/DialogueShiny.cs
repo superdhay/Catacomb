@@ -6,6 +6,8 @@ using UnityEngine.UI;
 public class DialogueShiny : MonoBehaviour
 {
     private GameObject Canvas;
+    public GameObject PhraseShiny;
+    //public AudioClip ShinyVoice;
 
     public bool FlagOneShot;
 
@@ -18,6 +20,8 @@ public class DialogueShiny : MonoBehaviour
     {
         Canvas = GameObject.Find("UI");
         Compteur = 1;
+        PhraseShiny.SetActive(false);
+        
         
     }
 
@@ -32,6 +36,7 @@ public class DialogueShiny : MonoBehaviour
         {
             Canvas.GetComponent<DialogueManager>().ActivationDialogue = true;
             Canvas.GetComponent<DialogueManager>().LeTexte = LeMessage;
+            PhraseShiny.SetActive(true);
         }
         
         if (FlagOneShot == true)
@@ -40,12 +45,14 @@ public class DialogueShiny : MonoBehaviour
             {
                 Canvas.GetComponent<DialogueManager>().ActivationDialogue = true;
                 Canvas.GetComponent<DialogueManager>().LeTexte = LeMessage;
+                PhraseShiny.SetActive(true);
                 
             }
             if (Compteur > 1)
             {
                 Canvas.GetComponent<DialogueManager>().LeTexte = "";
                 Canvas.GetComponent<DialogueManager>().ActivationDialogue = false;
+                PhraseShiny.SetActive(false);
             }
         }
         Compteur++;
@@ -54,6 +61,7 @@ public class DialogueShiny : MonoBehaviour
     {
         Canvas.GetComponent<DialogueManager>().LeTexte = "";
         Canvas.GetComponent<DialogueManager>().ActivationDialogue = false;
+        PhraseShiny.SetActive(false);
     }
 
 
