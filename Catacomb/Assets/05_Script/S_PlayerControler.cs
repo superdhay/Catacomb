@@ -27,13 +27,13 @@ public class S_PlayerControler : MonoBehaviour
     Vector3 currentMovement;
     Vector3 currentRunningMovement;
 
-    float rotationFactorPerFrame = 30.0f;
+    float rotationFactorPerFrame = 100.0f;
     public float gravity;
     public float maxJumpHeight = 2.4f;
     public float maxJumpTime = 0.7f;
     float initialJumpVelocity;
     public float PlayerSpeed, RunSpeed;
-    float StaminaDuration = 5;
+    public float MaxStamina, CurrentStamina;
 
     float AxisH, AxisV;
     float timerLuminosity, Cooldown;
@@ -57,8 +57,6 @@ public class S_PlayerControler : MonoBehaviour
         Spawner = GameObject.Find("SpawnProjo");
         resume = GameObject.Find("Resume");
 
-        //CamLeft = GameObject.Find("MainCameraLeft");
-        //CamRight = GameObject.Find("MainCameraRight");
 
         ValeurOrbes = GameObject.Find("QuantitéOrbes");
         ValeurOrbes.GetComponent<Text>().text = GameManager.Orbes.ToString();
@@ -108,6 +106,9 @@ public class S_PlayerControler : MonoBehaviour
             CamRight.SetActive(false);
             CamLeft.SetActive(true);
         }
+
+        MaxStamina = 5;
+        CurrentStamina = 5;
     }
 
 
@@ -292,7 +293,7 @@ public class S_PlayerControler : MonoBehaviour
     {
         //GameObject Projectile = Instantiate(Prefab_Attack, Spawner.transform.position, Spawner.transform.localRotation);
         GameObject Projectile = Instantiate(Prefab_Attack, Spawner.transform.position, Quaternion.Euler(-90,0,0) );
-        Projectile.GetComponent<Rigidbody>().AddForce(Spawner.transform.forward * 1000);
+        Projectile.GetComponent<Rigidbody>().AddForce(Spawner.transform.forward * 2000);
         
         if (isRight) Projectile.transform.rotation = Quaternion.Euler(0, 90, 0);
         if (!isRight) Projectile.transform.rotation = Quaternion.Euler(0, -90, 0);
@@ -343,17 +344,28 @@ public class S_PlayerControler : MonoBehaviour
 
 
 
-        if (isRunning) characterCTRL.Move(currentRunningMovement * Time.deltaTime);
-        else characterCTRL.Move(currentMovement * Time.deltaTime);
+        if (isRunning && CurrentStamina >= 0)
+        {
+            CurrentStamina = CurrentStamina - Time.deltaTime;
+            characterCTRL.Move(currentRunningMovement * Time.deltaTime);
+        }
+        else if(!isRunning && CurrentStamina <= MaxStamina)
+        {
+            characterCTRL.Move(currentMovement * Time.deltaTime);
+            CurrentStamina = CurrentStamina + Time.deltaTime;
+        }
+        else
+        {
+
+            characterCTRL.Move(currentMovement * Time.deltaTime);
+        }
+
+
+        
 
         Gravity();
 
         Interact();
-
-        //cam.transform.position = new Vector3(1f, (transform.position.y + 1f), transform.position.z);
-        
-        
-        //cam.transform.LookAt(transform.position);
 
         Jump();
 

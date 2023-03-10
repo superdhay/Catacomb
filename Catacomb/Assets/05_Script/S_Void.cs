@@ -32,8 +32,12 @@ public class S_Void : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Fade.SetActive(true);
-        Fade.GetComponent<Animator>().SetTrigger("Play");
+        if (other.tag == "Player")
+        {
+            Fade.SetActive(true);
+            Fade.GetComponent<Animator>().SetTrigger("Fade");
+        }
+
     }
 
     private void OnTriggerStay(Collider other)
