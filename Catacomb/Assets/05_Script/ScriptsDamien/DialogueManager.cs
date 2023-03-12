@@ -23,6 +23,7 @@ public class DialogueManager : MonoBehaviour
         FlagText = false;
         PanelDeTexte.SetActive(false);
         ZoneDeTexte.text = "";
+        //ZoneDeTexte.Color = fffdd5;
         //SourceAudio.SetActive(false);
     }
 
