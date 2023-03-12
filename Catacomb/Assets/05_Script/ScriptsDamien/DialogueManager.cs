@@ -13,7 +13,7 @@ public class DialogueManager : MonoBehaviour
     public bool FlagText;
 
     public GameObject PanelDeTexte;
-    public GameObject SourceAudio;
+    //public GameObject SourceAudio;
 
     // Start is called before the first frame update
     void Start()
