@@ -1795,7 +1795,7 @@ GameObject:
   - component: {fileID: 3150586284901800062}
   - component: {fileID: 3150586284901800061}
   m_Layer: 0
-  m_Name: Main CameraRight
+  m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2355,6 +2355,7 @@ MonoBehaviour:
   Spawner: {fileID: 0}
   Magic: {fileID: 8643955946422469617}
   Magic2: {fileID: 8354829692188832952}
+  ModLBoy: {fileID: 3150586286376691432}
   gravity: -10
   maxJumpHeight: 2.5
   maxJumpTime: 0.5
