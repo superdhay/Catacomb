@@ -49,6 +49,7 @@ public class S_LoadScene : MonoBehaviour
         {
             Timer = 6;
             Transition.SetActive(false);
+            GameManager.Checkpoint = 4;
             SceneManager.LoadScene(SceneID);
         }
     }

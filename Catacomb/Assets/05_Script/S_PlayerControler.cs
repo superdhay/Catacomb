@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class S_PlayerControler : MonoBehaviour
 {
@@ -13,15 +14,16 @@ public class S_PlayerControler : MonoBehaviour
     GameObject cam;
     GameObject Shiny_Light;
     GameObject resume;
-    GameObject StaminaBar, StaminaBarBase, FadeIn;
+    GameObject StaminaBar, StaminaBarBase, FadeIn, SceauBar;
 
     public GameObject Prefab_Attack;
     GameObject ValeurOrbes;
     public GameObject Spawner;
     public GameObject Magic;
-    public GameObject Magic2;
 
     public GameObject ModLBoy;
+
+    public GameObject[] TableCheckpoint;
 
     
 
@@ -37,10 +39,10 @@ public class S_PlayerControler : MonoBehaviour
     public float maxJumpTime = 0.7f;
     float initialJumpVelocity;
     public float PlayerSpeed, RunSpeed;
-    public float MaxStamina, CurrentStamina, StaminaFill;
+    public float MaxStamina, CurrentStamina, StaminaFill, MagicQT, MagicFull, MagicFill;
 
     float AxisH, AxisV;
-    float timerLuminosity, Cooldown;
+    float timerLuminosity, Cooldown, TimerGO;
 
     //Flag
     bool isJumpPressed = false;
@@ -63,6 +65,7 @@ public class S_PlayerControler : MonoBehaviour
         StaminaBar = GameObject.Find("StaminaQTE");
         StaminaBarBase = GameObject.Find("Stamina");
         FadeIn = GameObject.Find("FadeIn");
+        SceauBar = GameObject.Find("SceauJaune");
 
 
         ValeurOrbes = GameObject.Find("QuantitéOrbes");
@@ -117,6 +120,10 @@ public class S_PlayerControler : MonoBehaviour
 
         MaxStamina = 5;
         CurrentStamina = 5;
+        MagicFull = 1;
+
+        
+        transform.position = TableCheckpoint[GameManager.Checkpoint].transform.position;
     }
 
 
@@ -222,12 +229,14 @@ public class S_PlayerControler : MonoBehaviour
 
             animationCTRL.SetBool("isClimbing", true);
             animationCTRL.SetFloat("AxisV", AxisV);
+            animationCTRL.SetFloat("AxisH", 0);
 
             currentMovement.y = currentMovementInput.y * 2;
             currentMovement.z = 0;
             currentMovement.x = 0;
             currentMovementInput.x = 0;
-            //transform.rotation = Quaternion.Euler(0, -180, 0);
+
+            ModLBoy.transform.rotation = Quaternion.Euler(0, 180, 0);
 
             gravity = 0f;
 
@@ -275,7 +284,7 @@ public class S_PlayerControler : MonoBehaviour
     void Gravity()
     {
         float groundedGravity = 0.05f;
-        //float fallMultiplier = 5.0f;
+        float fallMultiplier = 2.0f;
         isOnGround = characterCTRL.isGrounded;
         bool isFalling = currentMovement.y <= 0.0f;
 
@@ -287,8 +296,8 @@ public class S_PlayerControler : MonoBehaviour
         }
         else if (isFalling)
         {
-            currentMovement.y += gravity /* * fallMultiplier*/ * Time.deltaTime;
-            currentRunningMovement.y += gravity /* * fallMultiplier*/ * Time.deltaTime;
+            currentMovement.y += gravity * fallMultiplier * Time.deltaTime;
+            currentRunningMovement.y += gravity * fallMultiplier * Time.deltaTime;
         }
         else
         {
@@ -330,6 +339,8 @@ public class S_PlayerControler : MonoBehaviour
     void Update()
     {
 
+        Interact();
+
         if (ModLBoy.transform.rotation.y == 0)
         {
             isRight = true;
@@ -355,19 +366,8 @@ public class S_PlayerControler : MonoBehaviour
         animationManager();
         Luminosity();
         Resume();
+        MagicAttack();
 
-        if (isAttacking && GameManager.Orbes >= 1 && Cooldown >= 1)
-        {
-            
-            Cooldown = 0;
-            GameManager.Orbes = GameManager.Orbes - 1;
-            ValeurOrbes.GetComponent<Text>().text = GameManager.Orbes.ToString();
-
-            Magic.GetComponent<Animator>().SetTrigger("Fire");
-            Magic2.GetComponent<Animator>().SetTrigger("Fire");
-            animationCTRL.SetTrigger("Fire");
-
-        }
 
 
         StaminaFill = CurrentStamina / MaxStamina;
@@ -379,17 +379,25 @@ public class S_PlayerControler : MonoBehaviour
 
         if (GameManager.PV <= 0)
         {
+            
+            TimerGO = TimerGO + Time.deltaTime;
+
             animationCTRL.SetBool("isDead", true);
             FadeIn.SetActive(true);
+
         }
-        else animationCTRL.SetBool("isDead", false);
+
+
+
+
+        if (TimerGO >= 3) SceneManager.LoadScene(4);
 
 
         Stamina();
 
         Gravity();
 
-        Interact();
+
 
         Jump();
 
@@ -412,6 +420,36 @@ public class S_PlayerControler : MonoBehaviour
         {
             resume.SetActive(false);
             animationCTRL.enabled = true;
+        }
+    }
+
+    void MagicAttack()
+    {
+        MagicFill = MagicQT / MagicFull;
+        SceauBar.GetComponent<Image>().fillAmount = MagicFill;
+
+
+        if (MagicQT != MagicFull && GameManager.Orbes >= 1) MagicQT = MagicQT + Time.deltaTime;
+        else if (GameManager.Orbes >= 1 && MagicQT >= MagicFull) MagicQT = 1;
+        else if (GameManager.Orbes <= 0 && MagicQT >= 0) MagicQT = MagicQT - Time.deltaTime; 
+        else if (GameManager.Orbes <= 0 && MagicQT <= 0) MagicQT = 0;
+        
+
+
+
+        if (isAttacking && GameManager.Orbes >= 1 && MagicQT >=0.9f)
+        {
+
+            
+            GameManager.Orbes = GameManager.Orbes - 1;
+            ValeurOrbes.GetComponent<Text>().text = GameManager.Orbes.ToString();
+
+            Magic.GetComponent<Animator>().SetTrigger("Fire");
+            animationCTRL.SetTrigger("Fire");
+
+            Cooldown = 0;
+            MagicQT = 0;
+
         }
     }
 

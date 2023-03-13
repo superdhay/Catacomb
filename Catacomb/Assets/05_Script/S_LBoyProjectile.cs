@@ -21,8 +21,9 @@ public class S_LBoyProjectile : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "Ennemy")
+        if(other.tag == "Enemy")
         {
+            other.GetComponent<S_Enemy>().ReceiveDamage(1);
             Destroy(gameObject);
         }
     }

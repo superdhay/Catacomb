@@ -2354,8 +2354,11 @@ MonoBehaviour:
     type: 3}
   Spawner: {fileID: 0}
   Magic: {fileID: 8643955946422469617}
-  Magic2: {fileID: 8354829692188832952}
   ModLBoy: {fileID: 3150586286376691432}
+  TableCheckpoint:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   gravity: -10
   maxJumpHeight: 2.5
   maxJumpTime: 0.5
@@ -2364,6 +2367,9 @@ MonoBehaviour:
   MaxStamina: 0
   CurrentStamina: 0
   StaminaFill: 0
+  MagicQT: 0
+  MagicFull: 0
+  MagicFill: 0
   isRight: 0
   oldIsRight: 0
   Flag_Item_Key: 0

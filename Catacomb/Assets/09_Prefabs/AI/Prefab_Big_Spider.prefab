@@ -1300,7 +1300,8 @@ GameObject:
   - component: {fileID: 5182348227994340959}
   - component: {fileID: 1228157327375832101}
   - component: {fileID: 4639234544007326135}
-  - component: {fileID: 5734057001083250303}
+  - component: {fileID: 1897070244531699512}
+  - component: {fileID: 3134325080682298506}
   m_Layer: 0
   m_Name: Prefab_Big_Spider
   m_TagString: Enemy
@@ -1368,18 +1369,32 @@ MonoBehaviour:
   DestroyDelay: 4
   ObjectToThrow: {fileID: 4918415015750424109, guid: d06b489536760ee408ea861c4bb3d846,
     type: 3}
---- !u!114 &5734057001083250303
-MonoBehaviour:
+--- !u!65 &1897070244531699512
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5521614272536909029}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5442c12d8a5a89c428b401d5aa772993, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  serializedVersion: 2
+  m_Size: {x: 1.1854577, y: 0.9379653, z: 2.0937815}
+  m_Center: {x: 0.01545465, y: 0.6675696, z: 0.055846214}
+--- !u!65 &3134325080682298506
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5521614272536909029}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.1854577, y: 0.9379653, z: 2.0937815}
+  m_Center: {x: 0.01545465, y: 0.6675696, z: 0.055846214}
 --- !u!1 &5628823462361937063
 GameObject:
   m_ObjectHideFlags: 0

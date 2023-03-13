@@ -19,7 +19,7 @@ public class S_GameOver : MonoBehaviour
     {
         GameManager.PV = 3;
         GameManager.Orbes = 0;
-        SceneManager.LoadScene(GameManager.LastestSceneID);
+        SceneManager.LoadScene(1);
     }
 
     void Exit()
@@ -29,6 +29,7 @@ public class S_GameOver : MonoBehaviour
         GameManager.Flag_Key = false;
         GameManager.Flag_Cranck = false;
         GameManager.Flag_TrapDoor = false;
+        GameManager.Checkpoint = 0;
         SceneManager.LoadScene(0);
     }
 

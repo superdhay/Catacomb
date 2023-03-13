@@ -15,6 +15,7 @@ using UnityEngine.UI;
 public class S_Bouguoir : MonoBehaviour
 {
     private int CoutOrbesBougies = 1;
+    public int IndexCheckPoint;
 
     public GameObject Player;
     public GameObject Flammes;
@@ -33,7 +34,18 @@ public class S_Bouguoir : MonoBehaviour
         ValeurOrbes = GameObject.Find("QuantitéOrbes");
         ValeurOrbes.GetComponent<Text>().text = GameManager.Orbes.ToString();
         Flammes.SetActive(false);
-        
+
+        if (GameManager.Checkpoint == IndexCheckPoint)
+        {
+            Bougie1.GetComponent<S_Bouguoir>().enabled = true;
+            Bougie1.GetComponent<S_Bouguoir>().Flammes.SetActive(false);
+            Bougie2.GetComponent<S_Bouguoir>().enabled = true;
+            Bougie2.GetComponent<S_Bouguoir>().Flammes.SetActive(false);
+
+            gameObject.GetComponent<S_Bouguoir>().enabled = false;
+            Flammes.SetActive(true);
+            GameManager.Checkpoint = IndexCheckPoint;
+        }
 
     }
 
@@ -65,7 +77,7 @@ public class S_Bouguoir : MonoBehaviour
 
     public void Update()
     {
-        if (GameManager.Flag_Statue_On && Flag_UseBougie)
+        if (GameManager.Flag_Bougeoir_On && Flag_UseBougie)
         {
 
 
@@ -79,9 +91,14 @@ public class S_Bouguoir : MonoBehaviour
             ValeurOrbes.GetComponent<Text>().text = GameManager.Orbes.ToString();
             gameObject.GetComponent<S_Bouguoir>().enabled = false;
             Flammes.SetActive(true);
-
+            GameManager.PV = 3;
+            GameManager.Checkpoint = IndexCheckPoint;
 
         }
+
+
+
+
     }
 
 
