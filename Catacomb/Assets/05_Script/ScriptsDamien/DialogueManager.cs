@@ -13,7 +13,6 @@ public class DialogueManager : MonoBehaviour
     public bool FlagText;
 
     public GameObject PanelDeTexte;
-    //public GameObject SourceAudio;
 
     // Start is called before the first frame update
     void Start()
@@ -23,8 +22,7 @@ public class DialogueManager : MonoBehaviour
         FlagText = false;
         PanelDeTexte.SetActive(false);
         ZoneDeTexte.text = "";
-        //ZoneDeTexte.Color = fffdd5;
-        //SourceAudio.SetActive(false);
+        ZoneDeTexte.color = Color.white;
     }
 
     // Update is called once per frame
