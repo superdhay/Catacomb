@@ -10,6 +10,7 @@ public class DialogueShiny : MonoBehaviour
     //public AudioClip ShinyVoice;
 
     public bool FlagOneShot;
+    //public bool FlagColour1;
 
     public string LeMessage;
 
