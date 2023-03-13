@@ -173,7 +173,7 @@ public abstract class S_Enemy : MonoBehaviour
             SetIsDead(false);
             Animator.SetBool("IsDead", true);
             SetCanAttack(false);
-            Destroy(this, 1.5f);
+            Destroy(gameobject, 1.5f);
         }
     }
 
