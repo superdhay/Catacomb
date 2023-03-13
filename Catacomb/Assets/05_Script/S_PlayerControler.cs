@@ -202,6 +202,7 @@ public class S_PlayerControler : MonoBehaviour
             GameManager.Flag_Dig = true;
 
             Climb_Flag = true;
+            GameManager.Flag_ProtectionClimb = false;
 
         }
         else
@@ -213,6 +214,7 @@ public class S_PlayerControler : MonoBehaviour
             GameManager.Flag_Dig = false;
 
             Climb_Flag = false;
+            GameManager.Flag_ProtectionClimb = true;
         }
 
         if (GameManager.isClimbing && Climb_Flag)

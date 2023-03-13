@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     public static int LastestSceneID;
 
     public static bool isClimbing = false;
+    public static bool Flag_ProtectionClimb;
 
 
     public static bool Flag_Statue_On;

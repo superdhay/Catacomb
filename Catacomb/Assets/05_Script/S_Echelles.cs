@@ -4,15 +4,11 @@ using UnityEngine;
 
 public class S_Echelles : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (GameManager.Flag_ProtectionClimb) gameObject.GetComponent<Collider>().enabled = true;
+        else gameObject.GetComponent<Collider>().enabled = false;
     }
 }
