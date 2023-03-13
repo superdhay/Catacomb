@@ -1300,6 +1300,7 @@ GameObject:
   - component: {fileID: 5182348227994340959}
   - component: {fileID: 1228157327375832101}
   - component: {fileID: 4639234544007326135}
+  - component: {fileID: 5734057001083250303}
   m_Layer: 0
   m_Name: Prefab_Big_Spider
   m_TagString: Enemy
@@ -1367,6 +1368,18 @@ MonoBehaviour:
   DestroyDelay: 4
   ObjectToThrow: {fileID: 4918415015750424109, guid: d06b489536760ee408ea861c4bb3d846,
     type: 3}
+--- !u!114 &5734057001083250303
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5521614272536909029}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5442c12d8a5a89c428b401d5aa772993, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5628823462361937063
 GameObject:
   m_ObjectHideFlags: 0

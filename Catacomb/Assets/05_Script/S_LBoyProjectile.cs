@@ -21,9 +21,8 @@ public class S_LBoyProjectile : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.name == "Spider")
+        if(other.tag == "Ennemy")
         {
-            //Retirer 1 PV à l'ennemi
             Destroy(gameObject);
         }
     }

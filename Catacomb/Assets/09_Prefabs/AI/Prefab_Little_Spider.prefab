@@ -1449,6 +1449,7 @@ GameObject:
   - component: {fileID: 6417209028192308899}
   - component: {fileID: 1148045483997451481}
   - component: {fileID: 6810631076843187100}
+  - component: {fileID: 5802243631081135171}
   m_Layer: 0
   m_Name: Prefab_Little_Spider
   m_TagString: Untagged
@@ -1513,6 +1514,18 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   Animator: {fileID: 1148045483997451481}
+--- !u!114 &5802243631081135171
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5928233754935251993}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5442c12d8a5a89c428b401d5aa772993, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6246152638348321167
 GameObject:
   m_ObjectHideFlags: 0

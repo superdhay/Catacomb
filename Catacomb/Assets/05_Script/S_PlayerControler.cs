@@ -428,6 +428,12 @@ public class S_PlayerControler : MonoBehaviour
             StaminaBar.SetActive(true);
             CurrentStamina = CurrentStamina + (Time.deltaTime * 1.5f);
         }
+        else if (isRunning && currentMovementInput.x == 0 && CurrentStamina >= 0 && CurrentStamina <= MaxStamina)
+        {
+            StaminaBarBase.SetActive(true);
+            StaminaBar.SetActive(true);
+            CurrentStamina = CurrentStamina + (Time.deltaTime * 1.5f);
+        }
         else if (CurrentStamina >= 0 && CurrentStamina <= 4.9) StaminaBarBase.SetActive(true);
         else if (isRunning && CurrentStamina < 0.1) isRunning = false;
         else
