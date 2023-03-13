@@ -7,10 +7,10 @@ public class DialogueShiny : MonoBehaviour
 {
     private GameObject Canvas;
     public GameObject PhraseShiny;
-    //public AudioClip ShinyVoice;
+    
 
     public bool FlagOneShot;
-    //public bool FlagColour1;
+    public bool FlagTexteShiny;
 
     public string LeMessage;
 
@@ -23,7 +23,6 @@ public class DialogueShiny : MonoBehaviour
         Compteur = 1;
         PhraseShiny.SetActive(false);
         
-        
     }
 
     // Update is called once per frame
@@ -33,6 +32,13 @@ public class DialogueShiny : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
+        if (FlagTexteShiny == true)
+        {
+            Canvas.GetComponent<DialogueManager>().ZoneDeTexte.color = Color.yellow;
+        }
+        else
+            Canvas.GetComponent<DialogueManager>().ZoneDeTexte.color = Color.white;
+
         if (FlagOneShot == false)
         {
             Canvas.GetComponent<DialogueManager>().ActivationDialogue = true;
