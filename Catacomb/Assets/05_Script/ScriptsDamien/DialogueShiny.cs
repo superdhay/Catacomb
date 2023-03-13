@@ -10,7 +10,7 @@ public class DialogueShiny : MonoBehaviour
     
 
     public bool FlagOneShot;
-    public bool FlagTexteShiny;
+    public bool FlagTexteNarration;
 
     public string LeMessage;
 
@@ -32,12 +32,12 @@ public class DialogueShiny : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (FlagTexteShiny == true)
+        if (FlagTexteNarration == true)
         {
-            Canvas.GetComponent<DialogueManager>().ZoneDeTexte.color = Color.yellow;
+            Canvas.GetComponent<DialogueManager>().ZoneDeTexte.color = Color.white;
         }
         else
-            Canvas.GetComponent<DialogueManager>().ZoneDeTexte.color = Color.white;
+            Canvas.GetComponent<DialogueManager>().ZoneDeTexte.color = new Color(1f, 0.99f, 0.83f, 1f);
 
         if (FlagOneShot == false)
         {

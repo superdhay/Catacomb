@@ -11735,6 +11735,11 @@ PrefabInstance:
       propertyPath: PhraseShiny
       value: 
       objectReference: {fileID: 2139343666}
+    - target: {fileID: 8965508805015043753, guid: 3b5d492f4b0ffa14285c162f33be6104,
+        type: 3}
+      propertyPath: FlagTexteNarration
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8965508805015043754, guid: 3b5d492f4b0ffa14285c162f33be6104,
         type: 3}
       propertyPath: m_Name
@@ -13536,6 +13541,11 @@ PrefabInstance:
       propertyPath: PhraseShiny
       value: 
       objectReference: {fileID: 2139343666}
+    - target: {fileID: 8965508805015043753, guid: 3b5d492f4b0ffa14285c162f33be6104,
+        type: 3}
+      propertyPath: FlagTexteNarration
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8965508805015043754, guid: 3b5d492f4b0ffa14285c162f33be6104,
         type: 3}
       propertyPath: m_Name
@@ -13919,6 +13929,11 @@ PrefabInstance:
       propertyPath: PhraseShiny
       value: 
       objectReference: {fileID: 2139343666}
+    - target: {fileID: 8965508805015043753, guid: 3b5d492f4b0ffa14285c162f33be6104,
+        type: 3}
+      propertyPath: FlagTexteNarration
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8965508805015043754, guid: 3b5d492f4b0ffa14285c162f33be6104,
         type: 3}
       propertyPath: m_Name
@@ -16002,6 +16017,11 @@ PrefabInstance:
       propertyPath: PhraseShiny
       value: 
       objectReference: {fileID: 2139343666}
+    - target: {fileID: 8965508805015043753, guid: 3b5d492f4b0ffa14285c162f33be6104,
+        type: 3}
+      propertyPath: FlagTexteNarration
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8965508805015043754, guid: 3b5d492f4b0ffa14285c162f33be6104,
         type: 3}
       propertyPath: m_Name
@@ -16740,6 +16760,11 @@ PrefabInstance:
       propertyPath: PhraseShiny
       value: 
       objectReference: {fileID: 2139343666}
+    - target: {fileID: 8965508805015043753, guid: 3b5d492f4b0ffa14285c162f33be6104,
+        type: 3}
+      propertyPath: FlagTexteNarration
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8965508805015043754, guid: 3b5d492f4b0ffa14285c162f33be6104,
         type: 3}
       propertyPath: m_Name
@@ -19467,6 +19492,11 @@ PrefabInstance:
       propertyPath: PhraseShiny
       value: 
       objectReference: {fileID: 2139343666}
+    - target: {fileID: 8965508805015043753, guid: 3b5d492f4b0ffa14285c162f33be6104,
+        type: 3}
+      propertyPath: FlagTexteNarration
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8965508805015043754, guid: 3b5d492f4b0ffa14285c162f33be6104,
         type: 3}
       propertyPath: m_Name
@@ -25003,7 +25033,7 @@ PrefabInstance:
     - target: {fileID: 8965508805015043751, guid: 3b5d492f4b0ffa14285c162f33be6104,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 28.11
+      value: 27.23
       objectReference: {fileID: 0}
     - target: {fileID: 8965508805015043751, guid: 3b5d492f4b0ffa14285c162f33be6104,
         type: 3}
@@ -25043,7 +25073,7 @@ PrefabInstance:
     - target: {fileID: 8965508805015043752, guid: 3b5d492f4b0ffa14285c162f33be6104,
         type: 3}
       propertyPath: m_Size.z
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8965508805015043753, guid: 3b5d492f4b0ffa14285c162f33be6104,
         type: 3}
@@ -25055,6 +25085,11 @@ PrefabInstance:
       propertyPath: PhraseShiny
       value: 
       objectReference: {fileID: 2139343666}
+    - target: {fileID: 8965508805015043753, guid: 3b5d492f4b0ffa14285c162f33be6104,
+        type: 3}
+      propertyPath: FlagTexteNarration
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8965508805015043754, guid: 3b5d492f4b0ffa14285c162f33be6104,
         type: 3}
       propertyPath: m_Name
@@ -27207,6 +27242,11 @@ PrefabInstance:
       propertyPath: PhraseShiny
       value: 
       objectReference: {fileID: 2139343666}
+    - target: {fileID: 8965508805015043753, guid: 3b5d492f4b0ffa14285c162f33be6104,
+        type: 3}
+      propertyPath: FlagTexteNarration
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8965508805015043754, guid: 3b5d492f4b0ffa14285c162f33be6104,
         type: 3}
       propertyPath: m_Name
@@ -38937,6 +38977,11 @@ PrefabInstance:
       propertyPath: PhraseShiny
       value: 
       objectReference: {fileID: 2139343666}
+    - target: {fileID: 8965508805015043753, guid: 3b5d492f4b0ffa14285c162f33be6104,
+        type: 3}
+      propertyPath: FlagTexteNarration
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8965508805015043754, guid: 3b5d492f4b0ffa14285c162f33be6104,
         type: 3}
       propertyPath: m_Name
@@ -39812,7 +39857,7 @@ PrefabInstance:
     - target: {fileID: 4077071206749365499, guid: 7ba041f8b3bfe824ea69de6dd8a7014f,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.7599998
+      value: -2.8
       objectReference: {fileID: 0}
     - target: {fileID: 4077071206749365499, guid: 7ba041f8b3bfe824ea69de6dd8a7014f,
         type: 3}
@@ -44063,7 +44108,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.4716981, g: 0.4716981, b: 0.4716981, a: 1}
+  m_Color: {r: 1, g: 0.99215686, b: 0.8352941, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -45094,6 +45139,11 @@ PrefabInstance:
       propertyPath: PhraseShiny
       value: 
       objectReference: {fileID: 2139343666}
+    - target: {fileID: 8965508805015043753, guid: 3b5d492f4b0ffa14285c162f33be6104,
+        type: 3}
+      propertyPath: FlagTexteNarration
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8965508805015043754, guid: 3b5d492f4b0ffa14285c162f33be6104,
         type: 3}
       propertyPath: m_Name
@@ -48417,6 +48467,11 @@ PrefabInstance:
       propertyPath: PhraseShiny
       value: 
       objectReference: {fileID: 2139343666}
+    - target: {fileID: 8965508805015043753, guid: 3b5d492f4b0ffa14285c162f33be6104,
+        type: 3}
+      propertyPath: FlagTexteNarration
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8965508805015043754, guid: 3b5d492f4b0ffa14285c162f33be6104,
         type: 3}
       propertyPath: m_Name
@@ -49758,6 +49813,11 @@ PrefabInstance:
       propertyPath: PhraseShiny
       value: 
       objectReference: {fileID: 2139343666}
+    - target: {fileID: 8965508805015043753, guid: 3b5d492f4b0ffa14285c162f33be6104,
+        type: 3}
+      propertyPath: FlagTexteNarration
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8965508805015043754, guid: 3b5d492f4b0ffa14285c162f33be6104,
         type: 3}
       propertyPath: m_Name
@@ -55053,6 +55113,11 @@ PrefabInstance:
       propertyPath: PhraseShiny
       value: 
       objectReference: {fileID: 2139343666}
+    - target: {fileID: 8965508805015043753, guid: 3b5d492f4b0ffa14285c162f33be6104,
+        type: 3}
+      propertyPath: FlagTexteNarration
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8965508805015043754, guid: 3b5d492f4b0ffa14285c162f33be6104,
         type: 3}
       propertyPath: m_Name
@@ -55236,6 +55301,11 @@ PrefabInstance:
       propertyPath: PhraseShiny
       value: 
       objectReference: {fileID: 2139343666}
+    - target: {fileID: 8965508805015043753, guid: 3b5d492f4b0ffa14285c162f33be6104,
+        type: 3}
+      propertyPath: FlagTexteNarration
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8965508805015043754, guid: 3b5d492f4b0ffa14285c162f33be6104,
         type: 3}
       propertyPath: m_Name
@@ -58776,6 +58846,11 @@ PrefabInstance:
       propertyPath: PhraseShiny
       value: 
       objectReference: {fileID: 2139343666}
+    - target: {fileID: 8965508805015043753, guid: 3b5d492f4b0ffa14285c162f33be6104,
+        type: 3}
+      propertyPath: FlagTexteNarration
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8965508805015043754, guid: 3b5d492f4b0ffa14285c162f33be6104,
         type: 3}
       propertyPath: m_Name
@@ -60547,6 +60622,11 @@ PrefabInstance:
       propertyPath: PhraseShiny
       value: 
       objectReference: {fileID: 2139343666}
+    - target: {fileID: 8965508805015043753, guid: 3b5d492f4b0ffa14285c162f33be6104,
+        type: 3}
+      propertyPath: FlagTexteNarration
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8965508805015043754, guid: 3b5d492f4b0ffa14285c162f33be6104,
         type: 3}
       propertyPath: m_Name
@@ -61214,6 +61294,11 @@ PrefabInstance:
       propertyPath: PhraseShiny
       value: 
       objectReference: {fileID: 2139343666}
+    - target: {fileID: 8965508805015043753, guid: 3b5d492f4b0ffa14285c162f33be6104,
+        type: 3}
+      propertyPath: FlagTexteNarration
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8965508805015043754, guid: 3b5d492f4b0ffa14285c162f33be6104,
         type: 3}
       propertyPath: m_Name
@@ -67424,6 +67509,11 @@ PrefabInstance:
       propertyPath: FlagTexteShiny
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8965508805015043753, guid: 3b5d492f4b0ffa14285c162f33be6104,
+        type: 3}
+      propertyPath: FlagTexteNarration
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8965508805015043754, guid: 3b5d492f4b0ffa14285c162f33be6104,
         type: 3}
       propertyPath: m_Name
@@ -73594,6 +73684,11 @@ PrefabInstance:
       propertyPath: PhraseShiny
       value: 
       objectReference: {fileID: 2139343666}
+    - target: {fileID: 8965508805015043753, guid: 3b5d492f4b0ffa14285c162f33be6104,
+        type: 3}
+      propertyPath: FlagTexteNarration
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8965508805015043754, guid: 3b5d492f4b0ffa14285c162f33be6104,
         type: 3}
       propertyPath: m_Name
