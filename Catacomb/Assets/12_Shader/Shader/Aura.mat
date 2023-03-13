@@ -68,7 +68,7 @@ Material:
     - Color_9E9570C9: {r: 766.9961, g: 0, b: 0, a: 1}
     - Vector2_24C90B4F: {r: 1, g: 1, b: 0, a: 0}
     - Vector2_69492494: {r: 0.5, g: 0.5, b: 0, a: 0}
-    - Vector2_C824D695: {r: 12.3, g: -0.6, b: 0, a: 0}
+    - Vector2_C824D695: {r: 10, g: -0.6, b: 0, a: 0}
     - Vector2_FAAF7DC4: {r: 1, g: 1, b: 0, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &7964410854495436646
