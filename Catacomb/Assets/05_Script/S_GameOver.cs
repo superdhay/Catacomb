@@ -1,0 +1,35 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+
+public class S_GameOver : MonoBehaviour
+{
+    public Button RetryBoutton, ExitBoutton;
+
+    
+    void Start()
+    {
+        RetryBoutton.GetComponent<Button>().onClick.AddListener(Retry); //AddListener permet de donner l'info qu'il faut que le boutton s'active si on clique dessus
+        ExitBoutton.GetComponent<Button>().onClick.AddListener(Exit);
+    }
+
+    void Retry()
+    {
+        GameManager.PV = 3;
+        GameManager.Orbes = 0;
+        SceneManager.LoadScene(GameManager.LastestSceneID);
+    }
+
+    void Exit()
+    {
+        GameManager.PV = 3;
+        GameManager.Orbes = 0;
+        GameManager.Flag_Key = false;
+        GameManager.Flag_Cranck = false;
+        GameManager.Flag_TrapDoor = false;
+        SceneManager.LoadScene(0);
+    }
+
+}
