@@ -11,24 +11,39 @@ public class DialogueShiny : MonoBehaviour
 
     public bool FlagOneShot;
     public bool FlagTexteNarration;
+    public bool FlagChronoDialogue;
 
     public string LeMessage;
 
     public int Compteur;
 
+    public float ChronoDialogue;
     // Start is called before the first frame update
     void Start()
     {
         Canvas = GameObject.Find("UI");
         Compteur = 1;
         PhraseShiny.SetActive(false);
+        FlagChronoDialogue = false;
+        ChronoDialogue = 0.0f;
         
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (FlagChronoDialogue == true)
+        {
+            ChronoDialogue = ChronoDialogue + Time.deltaTime;
+        }
+        if (ChronoDialogue >= 1.1f)
+        {
+            Canvas.GetComponent<DialogueManager>().LeTexte = "";
+            Canvas.GetComponent<DialogueManager>().ActivationDialogue = false;
+            PhraseShiny.SetActive(false);
+            FlagChronoDialogue = false;
+            ChronoDialogue = 0f;
+        }
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -66,9 +81,11 @@ public class DialogueShiny : MonoBehaviour
     }
     private void OnTriggerExit(Collider other)
     {
-        Canvas.GetComponent<DialogueManager>().LeTexte = "";
-        Canvas.GetComponent<DialogueManager>().ActivationDialogue = false;
-        PhraseShiny.SetActive(false);
+        FlagChronoDialogue = true;
+
+        //Canvas.GetComponent<DialogueManager>().LeTexte = "";
+        //Canvas.GetComponent<DialogueManager>().ActivationDialogue = false;
+        //PhraseShiny.SetActive(false);
     }
 
 
