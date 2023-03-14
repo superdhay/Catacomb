@@ -121,6 +121,8 @@ MonoBehaviour:
   Fissure2: {fileID: 8814293774031913111}
   Fissure3: {fileID: 139453402430855817}
   Fissure4: {fileID: 710135118825442472}
+  Flag_Destroy: 0
+  canDig: 0
 --- !u!114 &344069526604439227
 MonoBehaviour:
   m_ObjectHideFlags: 0

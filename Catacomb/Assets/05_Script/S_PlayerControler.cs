@@ -324,6 +324,8 @@ public class S_PlayerControler : MonoBehaviour
     void Update()
     {
 
+        
+
         Interact();
 
         if (ModLBoy.transform.rotation.y == 0)
@@ -369,6 +371,7 @@ public class S_PlayerControler : MonoBehaviour
             GameManager.Flag_Dead = true;
             animationCTRL.SetBool("isDead", true);
             animationCTRL.SetTrigger("Death");
+            characterCTRL.enabled = false;
             FadeIn.SetActive(true);
 
         }
@@ -379,6 +382,7 @@ public class S_PlayerControler : MonoBehaviour
 
         if (TimerGO >= 3 && GameManager.PV <=0)
         {
+            characterCTRL.enabled = true;
             animationCTRL.SetBool("isDead", false);
             SceneManager.LoadScene(4);
         }
@@ -392,6 +396,8 @@ public class S_PlayerControler : MonoBehaviour
 
         Jump();
 
+
+        gameObject.transform.position = new Vector3(0, transform.position.y, transform.position.z);
 
         Climb_Flag = GameManager.isClimbing;
     }
@@ -490,8 +496,10 @@ public class S_PlayerControler : MonoBehaviour
     {
         currentMovementInput = context.ReadValue<Vector2>();
         currentMovement.z = currentMovementInput.x * PlayerSpeed;
-        //currentMovement.z = currentMovementInput.y;
+        //currentMovement.x = currentMovementInput.y;
         currentRunningMovement.z = currentMovementInput.x * RunSpeed;
+        currentMovement.x = 0;
+        currentRunningMovement.x = 0;
 
         isMoving = currentMovementInput.x != 0;
     }

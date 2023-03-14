@@ -4,15 +4,10 @@ using UnityEngine;
 
 public class S_SavElement : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
-        
+        if (FindObjectsOfType(GetType()).Length > 1) Destroy(gameObject);
+        else DontDestroyOnLoad(gameObject);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

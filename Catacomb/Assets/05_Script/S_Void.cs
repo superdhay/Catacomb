@@ -10,6 +10,8 @@ public class S_Void : MonoBehaviour
 
     public float Timer;
 
+    bool Void = false;
+
     void Start()
     {
         LBoy = GameObject.FindGameObjectWithTag("Player");
@@ -19,12 +21,11 @@ public class S_Void : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Void) Timer = Timer + Time.deltaTime;
 
         if (Timer >= 1 && Timer <= 5)
         {
             Debug.Log("LBoy is dead by void");
-            LBoy.transform.position = Respawn.transform.position;
             GameManager.PV = GameManager.PV - 3;
             Timer = 0;
         }
@@ -36,15 +37,9 @@ public class S_Void : MonoBehaviour
         {
             Fade.SetActive(true);
             Fade.GetComponent<Animator>().SetTrigger("Fade");
+            Void = true;
         }
 
     }
 
-    private void OnTriggerStay(Collider other)
-    {
-        if (other.tag == "Player")
-        {
-            Timer = Timer + Time.deltaTime;
-        }
-    }
 }
