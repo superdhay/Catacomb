@@ -19,6 +19,7 @@ public class S_GameOver : MonoBehaviour
     {
         GameManager.PV = 3;
         GameManager.Orbes = 0;
+        GameManager.Flag_Dead = false;
         SceneManager.LoadScene(1);
     }
 
@@ -29,6 +30,7 @@ public class S_GameOver : MonoBehaviour
         GameManager.Flag_Key = false;
         GameManager.Flag_Cranck = false;
         GameManager.Flag_TrapDoor = false;
+        GameManager.Flag_Dead = false;
         GameManager.Checkpoint = 0;
         SceneManager.LoadScene(0);
     }

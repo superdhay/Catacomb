@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class S_SceneManager : MonoBehaviour
 {
     public Button StartBoutton, QuitBoutton;
-    public int SceneID;
+    
 
     void Start()
     {
@@ -18,7 +18,7 @@ public class S_SceneManager : MonoBehaviour
 
     void Play()
     {
-        SceneManager.LoadScene(SceneID);
+        SceneManager.LoadScene(3);
     }
 
     void ExitGame()

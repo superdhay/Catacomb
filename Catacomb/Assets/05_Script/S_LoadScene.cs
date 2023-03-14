@@ -21,9 +21,10 @@ public class S_LoadScene : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.tag == "Player" && GameManager.Flag_Key == true && GameManager.Flag_Use)
+        if (other.tag == "Player" && GameManager.Flag_Key && GameManager.Flag_Use)
         {
             Timer = 0;
+            GameManager.Flag_KeyUsed = true;
         }
         
     }

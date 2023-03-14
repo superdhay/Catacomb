@@ -17,6 +17,10 @@ public abstract class S_Enemy : MonoBehaviour
     [SerializeField]
     private float AttackDelay = 1.5f;
 
+    //Detection range.
+    [SerializeField]
+    private float DetectionRange = 10f;
+
     //Variable to verify if the enemy is dead.
     private bool IsDead = false;
 
@@ -33,6 +37,9 @@ public abstract class S_Enemy : MonoBehaviour
     private bool CanAttack = true;
 
     public Animator Animator;
+
+    public GameObject Orbes;
+    public GameObject SpawnOrbes;
 
 
 //////////////////////////////////////////////////////////////////////////////////
@@ -56,12 +63,12 @@ public abstract class S_Enemy : MonoBehaviour
             {
                 Move();
                 Animator.SetBool("IsAttacking", false);
+                PlayerDetected = false;
             }
 
             //Cast a ray for player detection.
             EnemyVision();
         }
-        
     }
 
 
@@ -123,11 +130,11 @@ public abstract class S_Enemy : MonoBehaviour
     {
         Vector3 rayStartPosition = new Vector3(transform.position.x, transform.position.y + .5f, transform.position.z+.5f);
         //Debug cast.
-        Debug.DrawRay(rayStartPosition, transform.forward * 10);
+        Debug.DrawRay(rayStartPosition, transform.forward * DetectionRange);
 
         //Cast ray
         RaycastHit hit;
-        if (Physics.Raycast(new Ray(rayStartPosition, transform.forward * 10), out hit, 10))
+        if (Physics.Raycast(new Ray(rayStartPosition, transform.forward * DetectionRange), out hit, DetectionRange))
         {
             //Verify if the player is touch.
             if (hit.collider.tag == "Player")
@@ -157,6 +164,7 @@ public abstract class S_Enemy : MonoBehaviour
     public void ResetAttack()
     {
         CanAttack = true;
+        Animator.SetBool("IsAttacking", false);
     }
 
 
@@ -173,6 +181,7 @@ public abstract class S_Enemy : MonoBehaviour
             SetIsDead(false);
             Animator.SetBool("IsDead", true);
             SetCanAttack(false);
+            Instantiate(Orbes, SpawnOrbes.transform.position, Quaternion.Euler(0,90,0));
             Destroy(gameObject, 1.5f);
         }
     }

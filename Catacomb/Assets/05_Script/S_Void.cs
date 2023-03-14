@@ -25,7 +25,7 @@ public class S_Void : MonoBehaviour
         {
             Debug.Log("LBoy is dead by void");
             LBoy.transform.position = Respawn.transform.position;
-            GameManager.PV = GameManager.PV - 1;
+            GameManager.PV = GameManager.PV - 3;
             Timer = 0;
         }
     }

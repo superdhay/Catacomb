@@ -54,7 +54,7 @@ public class S_SmallSpider : S_Enemy
     public void OnTriggerEnter(Collider collision)
     {
         //Verify if it is the player that is hit.
-        if (collision.tag == "Player")
+        if (collision.tag == "Player" && base.GetCanAttack())
         {
             Debug.Log("hit");
             GameManager.PV--;
@@ -63,6 +63,6 @@ public class S_SmallSpider : S_Enemy
 
     public void OnTriggerExit(Collider collision)
     {
-        base.Animator.SetBool("IsAttacking", true);
+        base.ResetAttack();
     }
 }

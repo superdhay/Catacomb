@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
 
     public static bool isClimbing = false;
     public static bool Flag_ProtectionClimb;
+    public static bool Flag_Dead = false;
 
 
     public static bool Flag_Statue_On;
@@ -18,6 +19,7 @@ public class GameManager : MonoBehaviour
     public static bool Flag_Dig;
     public static bool Flag_Use;
     public static bool Flag_Key;
+    public static bool Flag_KeyUsed;
     public static bool Flag_Cranck;
     public static bool Flag_TrapDoor;
 
