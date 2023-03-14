@@ -164,6 +164,7 @@ public abstract class S_Enemy : MonoBehaviour
     public void ResetAttack()
     {
         CanAttack = true;
+        Animator.SetBool("IsAttacking", false);
     }
 
 
