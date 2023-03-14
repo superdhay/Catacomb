@@ -63,6 +63,6 @@ public class S_SmallSpider : S_Enemy
 
     public void OnTriggerExit(Collider collision)
     {
-        base.Animator.SetBool("IsAttacking", true);
+        base.ResetAttack();
     }
 }

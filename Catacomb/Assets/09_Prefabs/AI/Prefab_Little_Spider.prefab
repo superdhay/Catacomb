@@ -1552,6 +1552,7 @@ MonoBehaviour:
   LifePoint: 2
   MoveSpeed: 2
   AttackDelay: 1.5
+  DetectionRange: 7
   Waypoints:
   - {fileID: 0}
   - {fileID: 0}
