@@ -33,7 +33,6 @@ public class S_PlayerControler : MonoBehaviour
     Vector3 currentMovement;
     Vector3 currentRunningMovement;
 
-    float rotationFactorPerFrame = 100.0f;
     public float gravity;
     public float maxJumpHeight = 2.4f;
     public float maxJumpTime = 0.7f;
@@ -130,18 +129,8 @@ public class S_PlayerControler : MonoBehaviour
     void handleRotation()
     {
 
-        Vector3 positionToLookAt;
-
-        positionToLookAt.x = currentMovement.x;
-        positionToLookAt.y = 0.0f;
-        positionToLookAt.z = currentMovement.z;
-
-        Quaternion currentRotation = transform.rotation;
-
         if (isMoving)
         {
-            //Quaternion targetRotation = Quaternion.LookRotation(positionToLookAt);
-            //transform.rotation = Quaternion.Slerp(currentRotation, targetRotation, rotationFactorPerFrame * Time.deltaTime);
 
             if (currentMovementInput.x >0)
             {
@@ -154,11 +143,7 @@ public class S_PlayerControler : MonoBehaviour
                 ModLBoy.transform.rotation = Quaternion.Euler(ModLBoy.transform.rotation.x, 180, ModLBoy.transform.rotation.z);
             }
 
-
-
-
-        }
-        
+        }  
 
     }
 
@@ -377,20 +362,26 @@ public class S_PlayerControler : MonoBehaviour
         else characterCTRL.Move(currentMovement * Time.deltaTime);
 
 
-        if (GameManager.PV <= 0)
+        if (GameManager.PV <= 0 && !GameManager.Flag_Dead)
         {
-            
-            TimerGO = TimerGO + Time.deltaTime;
 
+            TimerGO = 0;
+            GameManager.Flag_Dead = true;
             animationCTRL.SetBool("isDead", true);
+            animationCTRL.SetTrigger("Death");
             FadeIn.SetActive(true);
 
         }
 
+        if (TimerGO <= 4) TimerGO = TimerGO + Time.deltaTime;
 
 
 
-        if (TimerGO >= 3) SceneManager.LoadScene(4);
+        if (TimerGO >= 3 && GameManager.PV <=0)
+        {
+            animationCTRL.SetBool("isDead", false);
+            SceneManager.LoadScene(4);
+        }
 
 
         Stamina();

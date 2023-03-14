@@ -26,28 +26,13 @@ public class S_OrbesPerma : MonoBehaviour
     }
 
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (Flag_Respawn == false)
-        {
-
-            Instantiate(FX, this.transform.position, Quaternion.identity);
-            GameManager.Orbes = GameManager.Orbes + QuantiteOrbe;
-            ValeurOrbes.GetComponent<Text>().text = GameManager.Orbes.ToString();
-
-            Flag_Respawn = true;
-            orbe.SetActive(false);
-
-        }
-
-    }
 
     private void OnTriggerStay(Collider other)
     {
             if (Flag_Respawn == false)
             {
 
-                Instantiate(FX, this.transform.position, Quaternion.identity);
+                Instantiate(FX, transform.position, Quaternion.identity);
                 GameManager.Orbes = GameManager.Orbes + QuantiteOrbe;
                 ValeurOrbes.GetComponent<Text>().text = GameManager.Orbes.ToString();
 

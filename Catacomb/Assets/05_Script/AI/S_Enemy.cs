@@ -34,6 +34,9 @@ public abstract class S_Enemy : MonoBehaviour
 
     public Animator Animator;
 
+    public GameObject Orbes;
+    public GameObject SpawnOrbes;
+
 
 //////////////////////////////////////////////////////////////////////////////////
 
@@ -61,7 +64,6 @@ public abstract class S_Enemy : MonoBehaviour
             //Cast a ray for player detection.
             EnemyVision();
         }
-        
     }
 
 
@@ -173,6 +175,7 @@ public abstract class S_Enemy : MonoBehaviour
             SetIsDead(false);
             Animator.SetBool("IsDead", true);
             SetCanAttack(false);
+            Instantiate(Orbes, SpawnOrbes.transform.position, Quaternion.Euler(0,90,0));
             Destroy(gameObject, 1.5f);
         }
     }
