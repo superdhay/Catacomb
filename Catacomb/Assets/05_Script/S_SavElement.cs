@@ -7,7 +7,7 @@ public class S_SavElement : MonoBehaviour
     private void Awake()
     {
 
-        if (FindObjectsOfType(GetType()).Length > 1 && GameManager.ID != 1 && GameManager.ID != 2) Destroy(gameObject);
+        if (FindObjectsOfType(GetType()).Length > 1) Destroy(gameObject);
         else DontDestroyOnLoad(gameObject);
 
     }

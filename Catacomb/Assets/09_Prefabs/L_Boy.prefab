@@ -2366,6 +2366,8 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   gravity: -10
   maxJumpHeight: 2.5
   maxJumpTime: 0.5
