@@ -38,7 +38,7 @@ public class S_LoadScene : MonoBehaviour
             Player.GetComponent<CharacterController>().enabled = false;
             Player.GetComponent<Animator>().enabled = false;
             Transition.SetActive(true);
-            gameObject.GetComponent<Animator>().enabled = false;
+            gameObject.GetComponent<Animator>().enabled = true;
         }
         if (Timer >= 3.9 && Timer <= 4)
         {

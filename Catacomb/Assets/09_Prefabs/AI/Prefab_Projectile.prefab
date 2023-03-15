@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 4918415015750424108}
   - component: {fileID: 4918415015750424097}
   - component: {fileID: 4918415015750424110}
-  - component: {fileID: 4918415015750424096}
+  - component: {fileID: 5957035762921467252}
   - component: {fileID: 4918415015750424099}
-  - component: {fileID: 4918415015750424098}
+  - component: {fileID: 1601326724363333784}
   m_Layer: 0
   m_Name: Prefab_Projectile
   m_TagString: Projectile
@@ -87,7 +87,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!54 &4918415015750424096
+--- !u!54 &5957035762921467252
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -116,7 +116,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 6994907117178606078, guid: 55b0ef122d4c7454eacc5585819666dd, type: 3}
---- !u!65 &4918415015750424098
+--- !u!65 &1601326724363333784
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -140,6 +140,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Fx_Projectile_Prephab
+      objectReference: {fileID: 0}
+    - target: {fileID: 4456140572463948498, guid: c480d330759b9a443a4a7b00447c0e7e,
+        type: 3}
+      propertyPath: m_Convex
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4456140572463948498, guid: c480d330759b9a443a4a7b00447c0e7e,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5065470503637200257, guid: c480d330759b9a443a4a7b00447c0e7e,
         type: 3}

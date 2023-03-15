@@ -36,8 +36,9 @@ public class S_Nacelle : MonoBehaviour
         {
             Player.GetComponent<CharacterController>().enabled = false;
             Player.GetComponent<Animator>().enabled = false;
+            Player.transform.parent = gameObject.transform;
             Transition.SetActive(true);
-            gameObject.GetComponent<Animator>().enabled = false;
+            gameObject.GetComponent<Animator>().enabled = true;
         }
         if (Timer >= 3.9 && Timer <= 4)
         {

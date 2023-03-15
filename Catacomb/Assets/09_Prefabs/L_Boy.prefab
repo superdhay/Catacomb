@@ -2357,6 +2357,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0610816c8424a324d91894bc4dfaf97a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Aura: {fileID: 667818353391106020}
+  Noise: {fileID: 2557006807499668477}
+  Halo: {fileID: 3506358989679748571}
   Prefab_Attack: {fileID: 8103931472696377829, guid: 4b61242616ac42d41b14dea699a091e6,
     type: 3}
   Spawner: {fileID: 0}
@@ -7818,6 +7821,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1700779335613409387}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2557006807499668477 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3811789040366785430, guid: 7bc8df8f6c3315d41ab5a78f45d1a73a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1700779335613409387}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2035990365246331545
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7895,6 +7904,12 @@ PrefabInstance:
 --- !u!4 &667818353391106016 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1514857858128997753, guid: 6bbd967d2ffc4d948a145db4927b2332,
+    type: 3}
+  m_PrefabInstance: {fileID: 2035990365246331545}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &667818353391106020 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1514857858128997757, guid: 6bbd967d2ffc4d948a145db4927b2332,
     type: 3}
   m_PrefabInstance: {fileID: 2035990365246331545}
   m_PrefabAsset: {fileID: 0}

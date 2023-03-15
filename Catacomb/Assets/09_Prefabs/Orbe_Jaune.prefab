@@ -94,6 +94,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FX: {fileID: 6443819711570779741, guid: eb83919d1710f544c8bdc5cc74f81a28, type: 3}
   ValeurOrbes: {fileID: 0}
+  orbe: {fileID: 8248173134387324310}
   DureeDeRespawn: 15
 --- !u!1 &8552628697498247534
 GameObject:

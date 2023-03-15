@@ -33,6 +33,8 @@ public class S_GameOver : MonoBehaviour
         GameManager.Flag_TrapDoor = false;
         GameManager.Flag_Dead = false;
         GameManager.Flag_Void = false;
+        GameManager.Flag_Statue1 = false;
+        GameManager.Flag_Statue2 = false;
         GameManager.Checkpoint = 0;
         SceneManager.LoadScene(0);
     }

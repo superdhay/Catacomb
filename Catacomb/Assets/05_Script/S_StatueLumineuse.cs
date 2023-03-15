@@ -59,6 +59,7 @@ public class S_StatueLumineuse : MonoBehaviour
             ValeurOrbes.GetComponent<Text>().text = GameManager.Orbes.ToString();
             gameObject.GetComponent<S_StatueLumineuse>().enabled = false;
             OrbeLumineuse.SetActive(true);
+            GameManager.Flag_Statue1 = true;
         }
     }
 

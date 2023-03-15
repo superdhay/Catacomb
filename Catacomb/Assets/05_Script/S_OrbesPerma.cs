@@ -9,7 +9,7 @@ public class S_OrbesPerma : MonoBehaviour
 
     public GameObject FX;
     public GameObject ValeurOrbes;
-    private GameObject orbe;
+    public GameObject orbe;
 
     private bool Flag_Respawn;
 
@@ -20,7 +20,6 @@ public class S_OrbesPerma : MonoBehaviour
     {
         ValeurOrbes = GameObject.Find("QuantitéOrbes");
         ValeurOrbes.GetComponent<Text>().text = GameManager.Orbes.ToString();
-        orbe = GameObject.Find("Visuel");
         CompteurRespawn = 0;
         Flag_Respawn = false;
     }
@@ -29,17 +28,17 @@ public class S_OrbesPerma : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-            if (Flag_Respawn == false)
-            {
+        if (other.tag == "Player" && Flag_Respawn == false)
+        {
 
-                Instantiate(FX, transform.position, Quaternion.identity);
-                GameManager.Orbes = GameManager.Orbes + QuantiteOrbe;
-                ValeurOrbes.GetComponent<Text>().text = GameManager.Orbes.ToString();
+            Instantiate(FX, transform.position, Quaternion.identity);
+            GameManager.Orbes = GameManager.Orbes + QuantiteOrbe;
+            ValeurOrbes.GetComponent<Text>().text = GameManager.Orbes.ToString();
 
-                Flag_Respawn = true;
-                orbe.SetActive(false);
+            Flag_Respawn = true;
+            orbe.SetActive(false);
 
-            }
+        }
 
     }
 
@@ -48,14 +47,13 @@ public class S_OrbesPerma : MonoBehaviour
         if (Flag_Respawn == true)
         {
             CompteurRespawn = CompteurRespawn + Time.deltaTime;
+        }
 
-            if (CompteurRespawn >= DureeDeRespawn)
-            {
-                CompteurRespawn = 0;
-                orbe.SetActive(true);
-                Flag_Respawn = false;
-            }
-
+        if (CompteurRespawn >= DureeDeRespawn)
+        {
+            CompteurRespawn = 0;
+            orbe.SetActive(true);
+            Flag_Respawn = false;
         }
 
     }
