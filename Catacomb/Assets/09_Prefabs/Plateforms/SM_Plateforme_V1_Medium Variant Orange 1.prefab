@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2380990558233039138}
   - component: {fileID: 2380990558233039141}
   - component: {fileID: 2380990558233039143}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: SM_Plateforme_Neutre_Medium (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -111,7 +111,7 @@ GameObject:
   - component: {fileID: 623617567105944800}
   - component: {fileID: 623617567105944803}
   - component: {fileID: 623617567105944805}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: SM_Plateforme_Neutre_Medium (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -210,7 +210,7 @@ GameObject:
   - component: {fileID: 8404896955087761937}
   - component: {fileID: 8404896955087761936}
   - component: {fileID: 8404896955087761938}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: SM_Plateforme_V1_Medium Variant Orange 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -313,7 +313,7 @@ GameObject:
   - component: {fileID: 5979860518513865128}
   - component: {fileID: 5979860518513865131}
   - component: {fileID: 618874783602099352}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: SM_Plateforme_Neutre_Medium
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -262,17 +262,17 @@ public class S_PlayerControler : MonoBehaviour
 
         if (timerLuminosity <= 5)
         {
-            Shiny_Light.GetComponent<Light>().range = Mathf.Lerp(Shiny_Light.GetComponent<Light>().range, 50, 0.5f);
-            //Aura.transform.localScale = new Vector3(Mathf.Lerp(Aura.transform.localScale.x, Aura.transform.localScale.x * 2, 0.5f), Mathf.Lerp(Aura.transform.localScale.y, Aura.transform.localScale.y * 2, 0.5f), Mathf.Lerp(Aura.transform.localScale.z, Aura.transform.localScale.z * 2, 0.5f));
-            //Noise.transform.localScale = new Vector3(Mathf.Lerp(Noise.transform.localScale.x, Noise.transform.localScale.x * 2, 0.5f), Mathf.Lerp(Noise.transform.localScale.y, Noise.transform.localScale.y * 2, 0.5f), Mathf.Lerp(Noise.transform.localScale.z, Noise.transform.localScale.z * 2, 0.5f));
-            //Halo.transform.localScale = new Vector3(Mathf.Lerp(Halo.transform.localScale.x, Halo.transform.localScale.x * 2, 0.5f), Mathf.Lerp(Halo.transform.localScale.y, Halo.transform.localScale.y * 2, 0.5f), Mathf.Lerp(Halo.transform.localScale.z, Halo.transform.localScale.z * 2, 0.5f));
+            Shiny_Light.GetComponent<Light>().range = Mathf.Lerp(Shiny_Light.GetComponent<Light>().range, 50, 0.1f);
+            Aura.transform.localScale = new Vector3(Mathf.Lerp(Aura.transform.localScale.x, 3.860004f, 0.1f), Mathf.Lerp(Aura.transform.localScale.y, 6, 0.1f), Mathf.Lerp(Aura.transform.localScale.z, 6, 0.1f));
+            Noise.transform.localScale = new Vector3(Mathf.Lerp(Noise.transform.localScale.x, 3.860004f, 0.1f), Mathf.Lerp(Noise.transform.localScale.y, 6, 0.1f), Mathf.Lerp(Noise.transform.localScale.z, 6, 0.1f));
+            Halo.transform.localScale = new Vector3(Mathf.Lerp(Halo.transform.localScale.x, 1, 0.1f), Mathf.Lerp(Halo.transform.localScale.y, 1, 0.1f), Mathf.Lerp(Halo.transform.localScale.z, 1, 0.1f));
         }
         else 
         { 
-            Shiny_Light.GetComponent<Light>().range = Mathf.Lerp(Shiny_Light.GetComponent<Light>().range, 2, 0.5f);
-            //Aura.transform.localScale = new Vector3(Mathf.Lerp(Aura.transform.localScale.x, Aura.transform.localScale.x / 2, 0.5f), Mathf.Lerp(Aura.transform.localScale.y, Aura.transform.localScale.y / 2, 0.5f), Mathf.Lerp(Aura.transform.localScale.z, Aura.transform.localScale.z / 2, 0.5f));
-            //Noise.transform.localScale = new Vector3(Mathf.Lerp(Noise.transform.localScale.x, Noise.transform.localScale.x / 2, 0.5f), Mathf.Lerp(Noise.transform.localScale.y, Noise.transform.localScale.y / 2, 0.5f), Mathf.Lerp(Noise.transform.localScale.z, Noise.transform.localScale.z / 2, 0.5f));
-            //Halo.transform.localScale = new Vector3(Mathf.Lerp(Halo.transform.localScale.x, Halo.transform.localScale.x / 2, 0.5f), Mathf.Lerp(Halo.transform.localScale.y, Halo.transform.localScale.y / 2, 0.5f), Mathf.Lerp(Halo.transform.localScale.z, Halo.transform.localScale.z / 2, 0.5f));
+            Shiny_Light.GetComponent<Light>().range = Mathf.Lerp(Shiny_Light.GetComponent<Light>().range, 2, 0.1f);
+            Aura.transform.localScale = new Vector3(Mathf.Lerp(Aura.transform.localScale.x, 1.930002f , 0.1f), Mathf.Lerp(Aura.transform.localScale.y, 3 , 0.1f), Mathf.Lerp(Aura.transform.localScale.z, 3 , 0.1f));
+            Noise.transform.localScale = new Vector3(Mathf.Lerp(Noise.transform.localScale.x, 1.930002f, 0.1f), Mathf.Lerp(Noise.transform.localScale.y, 3, 0.1f), Mathf.Lerp(Noise.transform.localScale.z, 3, 0.1f));
+            Halo.transform.localScale = new Vector3(Mathf.Lerp(Halo.transform.localScale.x, 0.4722283f, 0.1f), Mathf.Lerp(Halo.transform.localScale.y, 0.4722283f , 0.1f), Mathf.Lerp(Halo.transform.localScale.z, 0.4722283f, 0.1f));
         }
 
     }

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8033403472231897217}
   - component: {fileID: 8682123185246131243}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Coffre
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -132,12 +132,12 @@ PrefabInstance:
     - target: {fileID: 557340442902578847, guid: 323f4db5287e7a541a5f279b29670056,
         type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 827954244413299199, guid: 323f4db5287e7a541a5f279b29670056,
         type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 323f4db5287e7a541a5f279b29670056, type: 3}
@@ -168,7 +168,7 @@ PrefabInstance:
     - target: {fileID: 4959642260244251895, guid: 13b3fa8c750db6e488949fbd7624495f,
         type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5737551802366139981, guid: 13b3fa8c750db6e488949fbd7624495f,
         type: 3}

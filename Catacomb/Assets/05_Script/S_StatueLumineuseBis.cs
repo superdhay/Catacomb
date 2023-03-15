@@ -21,7 +21,17 @@ public class S_StatueLumineuseBis : MonoBehaviour
 
         ValeurOrbes = GameObject.Find("QuantitéOrbes");
         ValeurOrbes.GetComponent<Text>().text = GameManager.Orbes.ToString();
-        OrbeLumineuse.SetActive(false);
+
+        if (GameManager.Flag_Statue2)
+        {
+            gameObject.GetComponent<S_StatueLumineuseBis>().enabled = false;
+            OrbeLumineuse.SetActive(true);
+        }
+        else
+        {
+            OrbeLumineuse.SetActive(false);
+            gameObject.GetComponent<S_StatueLumineuseBis>().enabled = true;
+        }
 
     }
 
@@ -57,7 +67,7 @@ public class S_StatueLumineuseBis : MonoBehaviour
         {
             GameManager.Orbes = GameManager.Orbes - CoutOrbes;
             ValeurOrbes.GetComponent<Text>().text = GameManager.Orbes.ToString();
-            gameObject.GetComponent<S_StatueLumineuse>().enabled = false;
+            gameObject.GetComponent<S_StatueLumineuseBis>().enabled = false;
             OrbeLumineuse.SetActive(true);
             GameManager.Flag_Statue2 = true;
         }

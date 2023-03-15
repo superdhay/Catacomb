@@ -9,7 +9,7 @@ public class S_ConditionKey : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (GameManager.Flag_Key)
+        if (GameManager.Flag_Key || GameManager.Flag_KeyUsed)
         {
             False.SetActive(false);
             True.SetActive(true);
