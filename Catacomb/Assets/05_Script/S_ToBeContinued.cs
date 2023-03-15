@@ -18,6 +18,7 @@ public class S_ToBeContinued : MonoBehaviour
         GameManager.Flag_Cranck = false;
         GameManager.Flag_TrapDoor = false;
         GameManager.Flag_Dead = false;
+        GameManager.Flag_Void = false;
         GameManager.Checkpoint = 0;
 
     }

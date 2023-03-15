@@ -6,7 +6,6 @@ public class S_Void : MonoBehaviour
 {
     public GameObject LBoy;
     public GameObject Respawn;
-    public GameObject Fade;
 
     public float Timer;
 
@@ -35,8 +34,7 @@ public class S_Void : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            Fade.SetActive(true);
-            Fade.GetComponent<Animator>().SetTrigger("Fade");
+            GameManager.Flag_Void = true;
             Void = true;
         }
 

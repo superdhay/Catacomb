@@ -11,10 +11,10 @@ public class S_PlayerControler : MonoBehaviour
     PlayerInput playerInputs;
     CharacterController characterCTRL;
     Animator animationCTRL;
-    GameObject cam;
+    //GameObject cam;
     GameObject Shiny_Light;
-    GameObject resume;
-    GameObject StaminaBar, StaminaBarBase, FadeIn, SceauBar;
+    //GameObject resume;
+    GameObject StaminaBar, StaminaBarBase, SceauBar;
 
     public GameObject Prefab_Attack;
     GameObject ValeurOrbes;
@@ -57,13 +57,12 @@ public class S_PlayerControler : MonoBehaviour
         playerInputs = new PlayerInput();
         characterCTRL = GetComponent<CharacterController>();
         animationCTRL = GetComponent<Animator>();
-        cam = GameObject.Find("Main Camera");
+        //cam = GameObject.Find("Main Camera");
         Shiny_Light = GameObject.Find("ShinyLight");
         Spawner = GameObject.Find("SpawnProjo");
-        resume = GameObject.Find("Resume");
+        //resume = GameObject.Find("Resume");
         StaminaBar = GameObject.Find("StaminaQTE");
         StaminaBarBase = GameObject.Find("Stamina");
-        FadeIn = GameObject.Find("FadeIn");
         SceauBar = GameObject.Find("SceauJaune");
 
 
@@ -352,7 +351,7 @@ public class S_PlayerControler : MonoBehaviour
         handleRotation();
         animationManager();
         Luminosity();
-        Resume();
+        //Resume();
         MagicAttack();
 
 
@@ -372,7 +371,6 @@ public class S_PlayerControler : MonoBehaviour
             animationCTRL.SetBool("isDead", true);
             animationCTRL.SetTrigger("Death");
             characterCTRL.enabled = false;
-            FadeIn.SetActive(true);
 
         }
 
@@ -403,7 +401,7 @@ public class S_PlayerControler : MonoBehaviour
     }
 
 
-    void Resume()
+    /*void Resume()
     {
         if (playerInputs.L_Boy.Resume.triggered) isResuming = !isResuming;
 
@@ -418,7 +416,7 @@ public class S_PlayerControler : MonoBehaviour
             resume.SetActive(false);
             animationCTRL.enabled = true;
         }
-    }
+    }*/
 
     void MagicAttack()
     {
