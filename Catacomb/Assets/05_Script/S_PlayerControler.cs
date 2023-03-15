@@ -13,7 +13,7 @@ public class S_PlayerControler : MonoBehaviour
     Animator animationCTRL;
     //GameObject cam;
     GameObject Shiny_Light;
-    //GameObject resume;
+    GameObject resume;
     GameObject StaminaBar, StaminaBarBase, SceauBar;
 
     public GameObject Prefab_Attack;
@@ -60,7 +60,7 @@ public class S_PlayerControler : MonoBehaviour
         //cam = GameObject.Find("Main Camera");
         Shiny_Light = GameObject.Find("ShinyLight");
         Spawner = GameObject.Find("SpawnProjo");
-        //resume = GameObject.Find("Resume");
+        resume = GameObject.Find("Resume");
         StaminaBar = GameObject.Find("StaminaQTE");
         StaminaBarBase = GameObject.Find("Stamina");
         SceauBar = GameObject.Find("SceauJaune");
@@ -351,7 +351,7 @@ public class S_PlayerControler : MonoBehaviour
         handleRotation();
         animationManager();
         Luminosity();
-        //Resume();
+        Resume();
         MagicAttack();
 
 
@@ -401,7 +401,7 @@ public class S_PlayerControler : MonoBehaviour
     }
 
 
-    /*void Resume()
+    void Resume()
     {
         if (playerInputs.L_Boy.Resume.triggered) isResuming = !isResuming;
 
@@ -416,7 +416,7 @@ public class S_PlayerControler : MonoBehaviour
             resume.SetActive(false);
             animationCTRL.enabled = true;
         }
-    }*/
+    }
 
     void MagicAttack()
     {
