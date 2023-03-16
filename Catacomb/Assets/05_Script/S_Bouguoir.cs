@@ -91,7 +91,10 @@ public class S_Bouguoir : MonoBehaviour
             ValeurOrbes.GetComponent<Text>().text = GameManager.Orbes.ToString();
             gameObject.GetComponent<S_Bouguoir>().enabled = false;
             Flammes.SetActive(true);
-            GameManager.PV = 3;
+
+            if (GameManager.Flag_ExtraLife) GameManager.PV = 4;
+            else GameManager.PV = 3;
+
             GameManager.Checkpoint = IndexCheckPoint;
 
         }

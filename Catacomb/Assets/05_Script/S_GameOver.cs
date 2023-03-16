@@ -17,7 +17,8 @@ public class S_GameOver : MonoBehaviour
 
     void Retry()
     {
-        GameManager.PV = 3;
+        if(GameManager.Flag_ExtraLife) GameManager.PV = 4;
+        else GameManager.PV = 3;
         GameManager.Orbes = 0;
         GameManager.Flag_Dead = false;
         GameManager.Flag_Void = false;
@@ -35,6 +36,7 @@ public class S_GameOver : MonoBehaviour
         GameManager.Flag_Void = false;
         GameManager.Flag_Statue1 = false;
         GameManager.Flag_Statue2 = false;
+        GameManager.Flag_ExtraLife = false;
         GameManager.Checkpoint = 0;
         SceneManager.LoadScene(0);
     }

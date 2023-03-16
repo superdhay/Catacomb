@@ -5,6 +5,7 @@ using UnityEngine;
 public class S_Coffre : MonoBehaviour
 {
     public GameObject animatedPart;
+    public GameObject FX;
 
 
     void Awake()
@@ -17,6 +18,7 @@ public class S_Coffre : MonoBehaviour
     {
         if (other.tag == "Player")
         {
+            Instantiate(FX, transform.position, transform.rotation);
             animatedPart.GetComponent<Animator>().enabled = true;
             GameManager.Flag_Cranck = true;
             gameObject.GetComponent<Collider>().enabled = false;

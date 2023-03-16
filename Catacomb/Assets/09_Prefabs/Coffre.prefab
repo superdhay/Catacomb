@@ -47,6 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animatedPart: {fileID: 9221374370454555524}
+  FX: {fileID: 6443819711570779741, guid: eb83919d1710f544c8bdc5cc74f81a28, type: 3}
 --- !u!1001 &8666321014956690715
 PrefabInstance:
   m_ObjectHideFlags: 0

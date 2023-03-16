@@ -5,7 +5,6 @@ using UnityEngine;
 public class S_Void : MonoBehaviour
 {
     public GameObject LBoy;
-    public GameObject Respawn;
 
 
     void Start()
@@ -14,7 +13,8 @@ public class S_Void : MonoBehaviour
     }
 
 
-    private void OnTriggerEnter(Collider other)
+
+    private void OnTriggerStay(Collider other)
     {
         if (other.tag == "Player")
         {

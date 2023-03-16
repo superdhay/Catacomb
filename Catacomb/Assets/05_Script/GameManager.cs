@@ -7,13 +7,13 @@ public class GameManager : MonoBehaviour
     public static int PV = 3;
     public static int Orbes = 0;
     public static int Checkpoint = 0;
-    public static int ID;
 
 
     public static bool isClimbing = false;
     public static bool Flag_ProtectionClimb;
     public static bool Flag_Dead = false;
     public static bool Flag_Void = false;
+    public static bool Flag_ExtraLife = false;
 
 
     public static bool Flag_Statue_On;

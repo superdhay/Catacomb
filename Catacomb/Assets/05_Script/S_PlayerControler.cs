@@ -47,7 +47,7 @@ public class S_PlayerControler : MonoBehaviour
     //Flag
     bool isJumpPressed = false;
     bool isMoving, isRunning, isJumping, isInteracting, isAttacking, isAddLuminosity, isResuming;
-    bool isOnGround, Climb_Flag, Flag_Luminosity;
+    bool isOnGround, Climb_Flag;
     public bool isRight, oldIsRight;
 
     public bool Flag_Item_Key, Flag_Item_Cranck;
@@ -58,7 +58,6 @@ public class S_PlayerControler : MonoBehaviour
         playerInputs = new PlayerInput();
         characterCTRL = GetComponent<CharacterController>();
         animationCTRL = GetComponent<Animator>();
-        //cam = GameObject.Find("Main Camera");
         Shiny_Light = GameObject.Find("ShinyLight");
         Spawner = GameObject.Find("SpawnProjo");
         resume = GameObject.Find("Resume");
@@ -383,7 +382,7 @@ public class S_PlayerControler : MonoBehaviour
             GameManager.Flag_Dead = true;
             animationCTRL.SetBool("isDead", true);
             animationCTRL.SetTrigger("Death");
-            characterCTRL.enabled = false;
+            //characterCTRL.enabled = false;
 
         }
 
